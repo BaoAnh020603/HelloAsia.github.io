@@ -72,6 +72,7 @@ button {
 button:hover {
     background-color: #005BB5;
 }
+
 /* Thanh điều hướng */
 nav {
     background-color: #0078D7;
@@ -100,6 +101,7 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
+
 /* Bố cục lưới cho các bài học */
 section ul {
     display: grid;
@@ -120,37 +122,17 @@ section ul li a {
     color: #0078D7;
     font-weight: bold;
 }
-/* Hiệu ứng hover cho liên kết */
-a {
-    color: #0078D7;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-/* Cơ bản - Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Cấu trúc chung */
-body {
-    font-family: 'Arial', sans-serif;
-    background: #f4f7fb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 /* Đặt container login */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
+    background-color: #f4f7fb;
 }
 
+/* Box chứa form đăng nhập */
 .login-box {
     background: #fff;
     padding: 40px;
@@ -218,4 +200,3 @@ h2 {
 .signup a:hover {
     text-decoration: underline;
 }
-
