@@ -3,41 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang luyện nghe tiếng Trung và tiếng Hàn dành cho người học ngôn ngữ.">
     <title>Học Tiếng Trung & Tiếng Hàn</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Chào mừng đến với trang luyện nghe tiếng Trung và tiếng Hàn!</h1>
     </header>
     
-    <section>
-        <h2>Tiếng Trung</h2>
-        <p>Hãy luyện nghe các bài học tiếng Trung tại đây:</p>
-        <ul>
-            <li><a href="chinese_lesson1.mp3">Bài học 1 - Luyện nghe tiếng Trung</a></li>
-            <li><a href="chinese_lesson2.mp3">Bài học 2 - Luyện nghe tiếng Trung</a></li>
-        </ul>
-    </section>
+    <main>
+        <section>
+            <h2>Tiếng Trung</h2>
+            <p>Hãy luyện nghe các bài học tiếng Trung tại đây:</p>
+            <ul>
+                <li><a href="chinese_lesson1.mp3">Bài học 1 - Luyện nghe tiếng Trung</a></li>
+                <li><a href="chinese_lesson2.mp3">Bài học 2 - Luyện nghe tiếng Trung</a></li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>Tiếng Hàn</h2>
-        <p>Hãy luyện nghe các bài học tiếng Hàn tại đây:</p>
-        <ul>
-            <li><a href="korean_lesson1.mp3">Bài học 1 - Luyện nghe tiếng Hàn</a></li>
-            <li><a href="korean_lesson2.mp3">Bài học 2 - Luyện nghe tiếng Hàn</a></li>
-        </ul>
-    </section>
-    <form action="https://formspree.io/f/maykqzpp" method="POST">
-    <label for="name">Tên của bạn:</label>
-    <input type="text" id="name" name="name" required><br><br>
+        <section>
+            <h2>Tiếng Hàn</h2>
+            <p>Hãy luyện nghe các bài học tiếng Hàn tại đây:</p>
+            <ul>
+                <li><a href="korean_lesson1.mp3">Bài học 1 - Luyện nghe tiếng Hàn</a></li>
+                <li><a href="korean_lesson2.mp3">Bài học 2 - Luyện nghe tiếng Hàn</a></li>
+            </ul>
+        </section>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
+        <section>
+            <h2>Liên hệ với chúng tôi</h2>
+            <form action="https://formspree.io/f/maykqzpp" method="POST">
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" name="name" required><br><br>
 
-    <label for="message">Tin nhắn của bạn:</label><br>
-    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
 
-    <button type="submit">Gửi</button>
-</form>
+                <label for="message">Tin nhắn của bạn:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+                <button type="submit">Gửi</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
