@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang đăng nhập">
     <title>Đăng Nhập</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,17 +11,18 @@
     <div class="login-container">
         <div class="login-box">
             <h2>Đăng Nhập</h2>
-            <!-- Thay đổi action thành index.html -->
-            <form action="index.html" method="GET">
+            <form action="dashboard.html" method="POST">
                 <div class="textbox">
-                    <input type="text" placeholder="Tên đăng nhập" name="username" required>
+                    <input type="text" placeholder="Tên người dùng" name="username" required>
                 </div>
                 <div class="textbox">
                     <input type="password" placeholder="Mật khẩu" name="password" required>
                 </div>
-                <input type="submit" value="Đăng nhập" class="btn-login">
-                <p class="signup">Chưa có tài khoản? <a href="#">Đăng ký</a></p>
+                <button type="submit" class="btn-login">Đăng Nhập</button>
             </form>
+            <div class="signup">
+                <p>Chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
+            </div>
         </div>
     </div>
 </body>
