@@ -1,34 +1,44 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Reset cơ bản */
+body, h1, h2, p, ul, li, form, input, textarea, button {
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
 }
 
+/* Toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
 header {
     background-color: #0078D7;
     color: white;
-    padding: 20px 0;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    padding: 20px 0;
+    margin-bottom: 20px;
 }
 
+/* Main */
 main {
-    padding: 20px;
-    background: white;
-    margin: 20px auto;
     max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-h1, h2, h3 {
-    color: #0078D7;
+/* Section */
+section {
+    margin-bottom: 20px;
 }
 
+/* Liên kết */
 a {
     color: #0078D7;
     text-decoration: none;
@@ -36,4 +46,29 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Form */
+form {
+    margin-top: 10px;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005BB5;
 }
