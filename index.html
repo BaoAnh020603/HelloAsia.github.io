@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards Vocabulary</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -28,6 +28,29 @@
             <h3>Danh sách từ đã tạo:</h3>
             <p>Chưa có list từ nào.</p>
             <button id="createListButton">Tạo list từ</button>
+        </section>
+
+        <!-- Phần tạo list từ -->
+        <section id="createListSection" class="hidden">
+            <h2>Tạo list từ</h2>
+            <form id="createListForm">
+                <label for="title">Tiêu đề*</label>
+                <input type="text" id="title" required>
+
+                <label for="language">Ngôn ngữ*</label>
+                <select id="language" required>
+                    <option value="en-us">Tiếng Anh-Mỹ</option>
+                    <option value="en-uk">Tiếng Anh-Anh</option>
+                    <option value="fr">Tiếng Hàn</option>
+                    <option value="de">Tiếng Trung</option>
+                    <!-- Thêm các ngôn ngữ khác nếu cần -->
+                </select>
+
+                <label for="description">Mô tả</label>
+                <textarea id="description" rows="4"></textarea>
+
+                <button type="submit">Tạo list từ</button>
+            </form>
         </section>
     </main>
 
