@@ -97,8 +97,3 @@ p {
     margin: 20px 0 10px;
 }
 
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
