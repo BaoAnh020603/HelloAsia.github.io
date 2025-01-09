@@ -20,88 +20,22 @@
     <main>
         <section class="flashcard-list">
             <h2>Danh sách từ của tôi</h2>
-            <div class="flashcard">
-                <h3>Cambridge Vocabulary for IELTS</h3>
-                <p>1716 từ | 62562</p>
+            <div id="flashcardContainer">
+                <!-- Các flashcard sẽ được thêm vào đây -->
             </div>
-            <div class="flashcard">
-                <h3>Từ vựng tiếng Anh văn phòng</h3>
-                <p>536 từ | 13065</p>
-            </div>
-            <div class="flashcard">
-                <h3>Từ vựng tiếng Anh giao tiếp nâng cao</h3>
-                <p>599 từ | 7083</p>
-            </div>
-            <div class="flashcard">
-                <h3>Từ vựng tiếng Anh giao tiếp trung cấp</h3>
-                <p>798 từ | 8901</p>
-            </div>
-            <div class="flashcard">
-                <h3>Từ vựng tiếng Anh giao tiếp cơ bản</h3>
-                <p>993 từ | 24051</p>
-            </div>
-            <div class="flashcard">
-                <h3>900 từ TOEFL (có ảnh)</h3>
-                <p>899 từ | 4224</p>
-            </div>
-            <div class="flashcard">
-                <h3>900 từ IELTS (có ảnh)</h3>
-                <p>899 từ | 18270</p>
-            </div>
-            <div class="flashcard">
-                <h3>900 từ SAT (có ảnh)</h3>
-                <p>860 từ | 1755</p>
-            </div>
-            <div class="flashcard">
-                <h3>GRE-GMAT Vocabulary List</h3>
-                <p>868 từ | 429</p>
-            </div>
-            <div class="flashcard">
-                <h3>Academic word list</h3>
-                <p>570 từ | 2145</p>
-            </div>
-            <div class="flashcard">
-                <h3>New Academic Word List</h3>
-                <p>924 từ | 963</p>
-            </div>
-            <div class="flashcard">
-                <h3>Business Word List</h3>
-                <p>1665 từ | 1680</p>
-            </div>
-            <div class="flashcard">
-                <h3>TOEFL Word List</h3>
-                <p>3193 từ | 3219</p>
-            </div>
-            <div class="flashcard">
-                <h3>TOEIC Word List</h3>
-                <p>1194 từ | 30597</p>
-            </div>
-            <div class="flashcard">
-                <h3>Powerscore GRE 700 Repeat Offenders</h3>
-                <p>699 từ | 150</p>
-            </div>
-            <div class="flashcard">
-                <h3>Most common IELTS Listening words</h3>
-                <p>1124 từ | 9207</p>
-            </div>
-            <div class="flashcard">
-                <h3>600 TOEIC words</h3>
-                <p>620 từ | 59766</p>
-            </div>
-            <div class="flashcard">
-                <h3>Barron's SAT words</h3>
-                <p>1467 từ | 369</p>
-            </div>
-            <div class="flashcard">
-                <h3>Essential English Idioms</h3>
-                <p>468 từ | 2643</p>
-            </div>
-        </ ```html
+        </section>
+
+        <section class="upload-flashcard">
+            <h2>Tải lên danh sách từ vựng</h2>
+            <input type="file" id="fileUpload" accept=".txt" required>
+            <button id="uploadButton">Tải lên</button>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Flashcards Vocabulary</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
