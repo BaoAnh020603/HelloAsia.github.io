@@ -1,5 +1,5 @@
 /* Reset cơ bản */
-body, h1, h2, p, ul, li, form, input, textarea, button {
+body, h1, h2, p, ul, li, input, textarea, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -46,31 +46,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-/* Form */
-form {
-    margin-top: 10px;
-}
-
-input, textarea, button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #0078D7;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #005BB5;
 }
 
 /* Thanh điều hướng */
@@ -121,82 +96,4 @@ section ul li a {
     display: block;
     color: #0078D7;
     font-weight: bold;
-}
-
-/* Đặt container login */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f7fb;
-}
-
-/* Box chứa form đăng nhập */
-.login-box {
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
-    color: #333;
-}
-
-/* Thêm kiểu cho các ô nhập */
-.textbox {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.textbox input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.textbox input:focus {
-    border-color: #007BFF;
-    outline: none;
-}
-
-/* Nút đăng nhập */
-.btn-login {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #007BFF;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-login:hover {
-    background: #0056b3;
-}
-
-/* Tạo phần đăng ký */
-.signup {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.signup a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.signup a:hover {
-    text-decoration: underline;
 }
