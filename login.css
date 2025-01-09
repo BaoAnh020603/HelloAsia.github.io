@@ -102,28 +102,3 @@ p {
     justify-content: center;
     gap: 10px;
 }
-
-.social-buttons a {
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.facebook {
-    background-color: #3b5998;
-}
-
-.google {
-    background-color: #1da1f2;
-}
-
-.facebook:hover {
-    background-color: #334d84;
-}
-
-.google:hover {
-    background-color: #1991da;
-}
