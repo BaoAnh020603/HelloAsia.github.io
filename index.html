@@ -11,9 +11,16 @@
     <header>
         <h1>Chào mừng đến với trang luyện nghe tiếng Trung và tiếng Hàn!</h1>
     </header>
-    
+    <nav>
+        <ul>
+            <li><a href="#chinese">Tiếng Trung</a></li>
+            <li><a href="#korean">Tiếng Hàn</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+            <li><button onclick="window.location.href='login.html'">Đăng nhập</button></li>
+        </ul>
+    </nav>
     <main>
-        <section>
+        <section id="chinese">
             <h2>Tiếng Trung</h2>
             <p>Hãy luyện nghe các bài học tiếng Trung tại đây:</p>
             <ul>
@@ -22,7 +29,7 @@
             </ul>
         </section>
 
-        <section>
+        <section id="korean">
             <h2>Tiếng Hàn</h2>
             <p>Hãy luyện nghe các bài học tiếng Hàn tại đây:</p>
             <ul>
@@ -31,7 +38,7 @@
             </ul>
         </section>
 
-        <section>
+        <section id="contact">
             <h2>Liên hệ với chúng tôi</h2>
             <form action="https://formspree.io/f/maykqzpp" method="POST">
                 <label for="name">Tên của bạn:</label>
@@ -46,17 +53,6 @@
                 <button type="submit">Gửi</button>
             </form>
         </section>
-        <nav>
-            <ul>
-                <li><a href="#chinese">Tiếng Trung</a></li>
-                <li><a href="#korean">Tiếng Hàn</a></li>
-                <li><a href="#contact">Liên Hệ</a></li>
-                <li><a href="login.html">Đăng nhập</a></li>
-            </ul>
-        </nav>
-        <script type="text/javascript">
-    window.location.href = 'login.html'; // Chuyển hướng đến trang đăng nhập
-</script>
     </main>
 </body>
 </html>
