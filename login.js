@@ -1,6 +1,6 @@
 // Xử lý đăng nhập khi người dùng nhấn nút submit
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Ngừng việc tải lại trang
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Ngừng việc gửi yêu cầu HTTP mặc định
 
     // Lấy giá trị tên đăng nhập và mật khẩu
     var username = document.getElementById("username").value;
