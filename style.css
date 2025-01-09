@@ -1,99 +1,70 @@
-/* Reset cơ bản */
-body, h1, h2, p, ul, li, input, textarea, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Toàn bộ trang */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-/* Header */
 header {
-    background-color: #0078D7;
+    background-color: #333;
     color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 20px;
-}
-
-/* Main */
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Section */
-section {
-    margin-bottom: 20px;
-}
-
-/* Liên kết */
-a {
-    color: #0078D7;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Thanh điều hướng */
-nav {
-    background-color: #0078D7;
-    padding: 10px;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
 }
 
 nav ul li {
+    display: inline;
     margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav ul li a:hover {
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+ul li a:hover {
     text-decoration: underline;
 }
 
-/* Bố cục lưới cho các bài học */
-section ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
-}
-
-section ul li {
-    background-color: #f1f1f1;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+footer {
     text-align: center;
-}
-
-section ul li a {
-    display: block;
-    color: #0078D7;
-    font-weight: bold;
+    padding: 10px;
+    background-color: #333;
+    color: white;
 }
