@@ -1,71 +1,39 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="ko"> <!-- Sử dụng 'ko' cho tiếng Hàn -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học Tiếng Trung & Tiếng Hàn</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Học Tiếng Hàn và Tiếng Trung</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-        // Kiểm tra trạng thái đăng nhập, nếu chưa đăng nhập thì chuyển về trang login
-        if (localStorage.getItem("loggedIn") !== "true") {
-            window.location.href = "login.html";
-        }
-    </script>
     <header>
-        <h1>Chào mừng đến với trang luyện nghe tiếng Trung và tiếng Hàn!</h1>
+        <h1>Học Tiếng Hàn và Tiếng Trung</h1>
+        <nav>
+            <ul>
+                <li><a href="#korean">Tiếng Hàn</a></li>
+                <li><a href="#chinese">Tiếng Trung</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
+    <section id="korean">
+        <h2>Học Tiếng Hàn</h2>
         <ul>
-            <li><a href="#chinese">Tiếng Trung</a></li>
-            <li><a href="#korean">Tiếng Hàn</a></li>
-            <li><a href="#contact">Liên Hệ</a></li>
-            <li><a href="#" id="logout">Đăng Xuất</a></li>
+            <li><a href="#">Bài học cơ bản 1</a></li>
+            <li><a href="#">Bài học cơ bản 2</a></li>
+            <li><a href="#">Bài học cơ bản 3</a></li>
         </ul>
-    </nav>
-    <main>
-        <section id="chinese">
-            <h2>Tiếng Trung</h2>
-            <p>Hãy luyện nghe các bài học tiếng Trung tại đây:</p>
-            <ul>
-                <li><a href="chinese_lesson1.mp3">Bài học 1 - Luyện nghe tiếng Trung</a></li>
-                <li><a href="chinese_lesson2.mp3">Bài học 2 - Luyện nghe tiếng Trung</a></li>
-            </ul>
-        </section>
-
-        <section id="korean">
-            <h2>Tiếng Hàn</h2>
-            <p>Hãy luyện nghe các bài học tiếng Hàn tại đây:</p>
-            <ul>
-                <li><a href="korean_lesson1.mp3">Bài học 1 - Luyện nghe tiếng Hàn</a></li>
-                <li><a href="korean_lesson2.mp3">Bài học 2 - Luyện nghe tiếng Hàn</a></li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Liên hệ với chúng tôi</h2>
-            <form action="https://formspree.io/f/maykqzpp" method="POST">
-                <label for="name">Tên của bạn:</label>
-                <input type="text" id="name" name="name" required><br><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-
-                <label for="message">Tin nhắn của bạn:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-
-                <button type="submit">Gửi</button>
-            </form>
-        </section>
-    </main>
-    <script>
-        // Xử lý đăng xuất
-        document.getElementById("logout").addEventListener("click", function (e) {
-            e.preventDefault();
-            localStorage.removeItem("loggedIn"); // Xóa trạng thái đăng nhập
-            window.location.href = "login.html"; // Quay lại trang đăng nhập
-        });
-    </script>
+    </section>
+    <section id="chinese">
+        <h2>Học Tiếng Trung</h2>
+        <ul>
+            <li><a href="#">Bài học cơ bản 1</a></li>
+            <li><a href="#">Bài học cơ bản 2</a></li>
+            <li><a href="#">Bài học cơ bản 3</a></li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2025 Học Tiếng Hàn và Tiếng Trung</p>
+    </footer>
 </body>
 </html>
