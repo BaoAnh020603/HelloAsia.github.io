@@ -12,7 +12,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     var password = document.getElementById("password").value;
 
     // Kiểm tra thông tin đăng nhập
-    if (username === "DNTU" && password === "BuddiesTeam") {
+    if (username === "DNTU@dntu.edu.vn" && password === "BuddiesTeam") {
         // Lưu trạng thái đăng nhập vào localStorage
         localStorage.setItem("loggedIn", "true");
 
