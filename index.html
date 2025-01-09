@@ -3,18 +3,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashcards</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
 </head>
-<body>
-    <div class="container">
-        <div class="title">
-            <i class="fas fa-clone"></i>
-            Flashcards
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen">
+    <div class="container mx-auto p-4">
+        <div class="flex items-center mb-6">
+            <i class="fas fa-clipboard-list text-3xl text-white mr-2"></i>
+            <h1 class="text-3xl font-bold text-white">Flashcards</h1>
         </div>
-        <div class="button">
-            <a href="#">Khám phá</a>
+        <div class="flex justify-center space-x-4 mb-6">
+            <button class="bg-white text-purple-500 px-4 py-2 rounded-full shadow hover:bg-purple-100">List từ của tôi</button>
+            <button class="bg-white text-pink-500 px-4 py-2 rounded-full shadow hover:bg-pink-100">Đang học</button>
+            <button class="bg-white text-red-500 px-4 py-2 rounded-full shadow hover:bg-red-100">Khám phá</button>
+        </div>
+        <div class="bg-green-100 text-green-700 p-4 rounded mb-6 shadow">
+            <p>Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights của bạn đã tạo trước đó) trong trang chi tiết bài học.</p>
+        </div>
+        <div class="mb-6">
+            <img src="https://storage.googleapis.com/a1aa/image/L1cA65fEQOXHCCPxQ2NR2kejIzFaXhL5rJivzRj2qmtLe0GoA.jpg" alt="Books and language learning materials" class="w-full rounded shadow" width="1200" height="300">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Cards -->
+            <div class="card">
+                <h2 class="card-title text-purple-500">Cambridge Vocabulary for IELTS (20 units)</h2>
+                <p class="card-text">37 từ | 67968</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">Từ vựng Tiếng Anh văn phòng</h2>
+                <p class="card-text">17 từ | 13052</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">Từ vựng tiếng Anh giao tiếp nâng cao</h2>
+                <p class="card-text">99 từ | 1789</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">Từ vựng tiếng Anh giao tiếp trung cấp</h2>
+                <p class="card-text">50 từ | 789</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">Từ vựng Tiếng Anh giao tiếp Sơ cấp Bỏ túi</h2>
+                <p class="card-text">50 từ | 789</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">900 từ TOEFL (có giải thích)</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">900 từ IELTS (có giải thích)</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">900 từ SAT (có giải thích)</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">GRE GMAT Vocabulary List</h2>
+                <p class="card-text">37 từ | 67968</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">Academic word list</h2>
+                <p class="card-text">51 từ | 2745</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">New Academic Word List</h2>
+                <p class="card-text">18 từ | 903</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">Business Word List</h2>
+                <p class="card-text">18 từ | 1680</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">TOEFL Word List</h2>
+                <p class="card-text">37 từ | 67968</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">TOEIC Word List</h2>
+                <p class="card-text">17 từ | 13052</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">Powerscore GRE 700 Repeat Offenders</h2>
+                <p class="card-text">99 từ | 1789</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">Most common IELTS Listening words</h2>
+                <p class="card-text">17 từ | 13052</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">600 TOEIC words</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">Barrons SAT words</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">Essential English Idioms</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-pink-500">Cambridge Vocabulary for IELTS</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-red-500">The College Panda 400 SAT Words</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title text-purple-500">Barrons Essentials Words for IELTS</h2>
+                <p class="card-text">47 từ | 4323</p>
+                <div class="card-footer">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>m.n4</span>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>
