@@ -99,7 +99,7 @@ p {
 /* Thêm ảnh nền cho image-section */
 .image-section {
     width: 50%;
-    background-image: url('language.jpg'); /* Thay 'tenfileanh.jpg' bằng tên file bạn đã lưu */
+    background-image: url('Pictures/language.jpg'); /* Thay 'tenfileanh.jpg' bằng tên file bạn đã lưu */
     background-size: cover; /* Đảm bảo ảnh bao phủ toàn bộ */
     background-position: center; /* Căn giữa ảnh */
 }
