@@ -116,7 +116,7 @@ p {
     background-color: #3b5998;
 }
 
-.twitter {
+.google {
     background-color: #1da1f2;
 }
 
@@ -124,6 +124,6 @@ p {
     background-color: #334d84;
 }
 
-.twitter:hover {
+.google:hover {
     background-color: #1991da;
 }
