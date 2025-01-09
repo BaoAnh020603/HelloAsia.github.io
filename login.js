@@ -1,4 +1,3 @@
-// Xử lý đăng nhập khi người dùng nhấn nút submit
 document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Ngừng việc gửi yêu cầu HTTP mặc định
 
@@ -6,11 +5,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    // Kiểm tra thông tin đăng nhập (thay thế với dữ liệu thực tế hoặc API)
+    // Xử lý kiểm tra đăng nhập
     if (username === "DNTU" && password === "BuddiesTeam") {
-        // Nếu thông tin đúng, chuyển hướng tới index.html
+        // Chuyển hướng tới index.html nếu thông tin đúng
         window.location.href = "index.html";
     } else {
-        alert("Tên đăng nhập hoặc mật khẩu không đúng.");
+        // Hiển thị lỗi trên giao diện
+        var errorElement = document.getElementById("error");
+        errorElement.textContent = "Tên đăng nhập hoặc mật khẩu không đúng.";
     }
 });
