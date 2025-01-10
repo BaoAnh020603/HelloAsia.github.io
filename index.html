@@ -1,537 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
    Flashcards
   </title>
   <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="style.css" rel="stylesheet">
- </head>
+  </head>
  <body>
-  <div class="container mt-4">
-   <h1 class="mb-4">
-    <i class="fas fa-clipboard-list">
-    </i>
-    Flashcards
-   </h1>
-   <ul class="nav nav-tabs mb-3">
-    <li class="nav-item">
-     <a class="nav-link active" href="#">
+  <nav class="navbar navbar-expand-lg navbar-light">
+   <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+     <i class="fas fa-book"></i>
+     STUDY4
+    </a>
+    <div class="collapse navbar-collapse">
+     <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Khóa học của tôi
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Chương trình học
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Đề thi online
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Flashcards
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Blog
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Kích hoạt tài khoản
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        <i class="fas fa-user-circle">
+        </i>
+       </a>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <div class="header text-center">
+   <div class="container">
+    <div class="title">
+     Flashcards
+    </div>
+   </div>
+  </div>
+  <div class="content">
+   <div class="container">
+    <div class="btn-group mb-3" role="group">
+     <button class="btn" type="button">
       List từ của tôi
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
+     </button>
+     <button class="btn" type="button">
       Đang học
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
+     </button>
+     <button class="btn" type="button">
       Khám phá
-     </a>
-    </li>
-   </ul>
-   <div class="alert alert-success" role="alert">
-    Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights của bạn đã tạo trước đó) trong trang chủ.
-   </div>
-   <div class="row mb-4">
-    <div class="col-12">
-     <div class="img-container">
-      <img alt="Books and language learning materials" height="150" src="https://myownadmin.com/wp-content/uploads/2019/07/writing-content.jpg" width="300"/>
-     </div>
+     </button>
     </div>
-   </div>
-   <div class="row">
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Cambridge Vocabulary for IELTS (20 units)
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        20 units |
-        <i class="fas fa-users">
-        </i>
-        67366
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
+    <div class="alert alert-success" role="alert">
+     <i class="fas fa-info-circle">
+     </i>
+     Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights các bạn đã tạo trước đây) trong trang chi tiết kết quả bài thi. Xem hướng dẫn.
+    </div>
+    <h5>
+     Đang học:
+    </h5>
+    <p>
+     Bạn chưa học list từ nào. Khám phá ngay hoặc bắt đầu tạo các list từ mới.
+    </p>
+    <h5>
+     List từ đã tạo:
+    </h5>
+    <div class="row">
+     <div class="col-md-3">
+      <div class="card text-center">
+       <div class="card-body">
+        <h5 class="card-title">
+         <i class="fas fa-plus">
+         </i>
+         Tạo list từ
+        </h5>
+       </div>
       </div>
      </div>
     </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Từ vựng tiếng Anh văn phòng
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        13502
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Từ vựng tiếng Anh giao tiếp nâng cao
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        9 units |
-        <i class="fas fa-users">
-        </i>
-        789
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Từ vựng tiếng Anh giao tiếp trung cấp
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        9 units |
-        <i class="fas fa-users">
-        </i>
-        789
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-       BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-   <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Từ vựng tiếng Anh giao tiếp cơ bản
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        9 units |
-        <i class="fas fa-users">
-        </i>
-        24081
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-       BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        900 từ TOEFL (có ảnh)
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        67366
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-       BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        900 từ IELTS (có ảnh)
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        67366
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        m.nq14
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        900 từ SAT (có ảnh)
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        67366
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        GRE GMAT Vocabulary List
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        5 units |
-        <i class="fas fa-users">
-        </i>
-        2145
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Academic word list
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        5 units |
-        <i class="fas fa-users">
-        </i>
-        2145
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        New Academic Word List
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        5 units |
-        <i class="fas fa-users">
-        </i>
-        2145
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Business Word List
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        5 units |
-        <i class="fas fa-users">
-        </i>
-        2145
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        TOEFL Word List
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        5 units |
-        <i class="fas fa-users">
-        </i>
-        2145
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        TOEIC Word List
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Powerscore GRE 700 Repeat Offenders
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        9 units |
-        <i class="fas fa-users">
-        </i>
-        789
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Most common IELTS Listening words
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        600 TOEIC words
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-       BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Barrons SAT words
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Essential English Idioms
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Cambridge Vocabulary for IELTS
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        The College Panda 400 SAT Words
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
-      </div>
-     </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h5 class="card-title">
-        Barrons Essentials Words for IELTS
-       </h5>
-       <p class="card-text">
-        <i class="fas fa-book">
-        </i>
-        17 units |
-        <i class="fas fa-users">
-        </i>
-        11714
-       </p>
-       <p class="card-text">
-        <i class="fas fa-user">
-        </i>
-        BaoAnh
-       </p>
+       </div>
       </div>
      </div>
     </div>
    </div>
   </div>
-  <script src="script.js"></script>
- </body>
-</html>
-
+  <div class="footer text-center">
+   <div class="container">
+    <p>
+     Bản quyền thuộc về HelloAsia © 2025
+    </p>
+   </div>
+  </div>
