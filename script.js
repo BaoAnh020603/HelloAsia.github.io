@@ -1,18 +1,26 @@
-document.getElementById('listForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Ngăn chặn hành động mặc định của form
+ <script>
+        document.getElementById('wordListForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    const word = document.getElementById('word').value; // Lấy giá trị từ input "word"
-    const definition = document.getElementById('definition').value; // Lấy giá trị từ input "definition"
+            const title = document.getElementById('title').value.trim();
+            const language = document.getElementById('language').value;
+            const description = document.getElementById('description').value.trim();
 
-    if (word && definition) { // Kiểm tra nếu cả hai trường đều không rỗng
-        const listItem = document.createElement('li'); // Tạo phần tử li
-        listItem.className = 'list-group-item'; // Thêm lớp Bootstrap
-        listItem.innerHTML = `<strong>${word}</strong>: ${definition}`; // Chèn nội dung
+            if (!title) {
+                alert('Vui lòng nhập tiêu đề!');
+                return;
+            }
 
-        document.getElementById('wordList').appendChild(listItem); // Thêm li vào ul
-        document.getElementById('listForm').reset(); // Xóa nội dung form
-    } else {
-        alert('Vui lòng nhập đầy đủ thông tin!');
-    }
-    console.log(word, definition);
-});
+            const wordList = document.getElementById('wordList');
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.textContent = `${title} (${language}) - ${description}`;
+
+            wordList.appendChild(listItem);
+
+            // Reset form và đóng modal
+            document.getElementById('wordListForm').reset();
+            const modal = bootstrap.Modal.getInstance(document.getElementById('createWordListModal'));
+            modal.hide();
+        });
+    </script>
