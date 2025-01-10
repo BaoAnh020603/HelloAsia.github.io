@@ -38,3 +38,7 @@ body {
     font-size: 1em;
     font-weight: bold;
 }
+html {
+  zoom: 100%;
+}
+
