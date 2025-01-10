@@ -41,4 +41,24 @@ body {
 html {
   zoom: 100%;
 }
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+body {
+  overflow-x: hidden;
+}
 
