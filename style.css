@@ -1,1 +1,151 @@
+/* Tổng quát */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+.header {
+    background-color: #4a90e2;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    border-bottom: 3px solid #357ABD;
+}
+
+.header img {
+    height: 40px;
+}
+
+.header .nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header .nav-item {
+    margin-left: 20px;
+}
+
+.header .nav-link {
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.header .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+}
+
+.content .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content .title i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #4a90e2;
+}
+
+/* Tabs */
+.tabs {
+    margin-bottom: 20px;
+}
+
+.tabs ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.tabs .nav-link {
+    border-radius: 20px;
+    padding: 8px 15px;
+    background-color: #4a90e2;
+    color: #fff;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.tabs .nav-link.active {
+    background-color: #357ABD;
+}
+
+/* Alert */
+.alert {
+    padding: 15px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.alert a {
+    color: #3c763d;
+    font-weight: 500;
+}
+
+/* List Group */
+.list-group {
+    margin-top: 10px;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    color: #4a90e2;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.list-group-item i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+    margin-top: 20px;
+}
+
+.sidebar img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar h5 {
+    color: #4a90e2;
+    font-weight: 500;
+}
 
