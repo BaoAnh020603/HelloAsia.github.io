@@ -1,122 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Flashcards
-  </title>
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Flashcards</title>
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
- <body>
-  <div class="header d-flex justify-content-between align-items-center">
-   <div class="d-flex align-items-center">
-    <img alt="Logo" src="https://www.hpsm.org/images/default-source/icons/language-services.png/40x40"/>
-    <span class="ms-2 text-white">
-     HelloAsia
-    </span>
-   </div>
-   <ul class="nav">
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      Khoá học của tôi
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      Chương trình học
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      Đề thi online
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      Flashcards
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      Blog
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      Kích hoạt tài khoản
-     </a>
-    </li>
-    <li class="nav-item">
-     <a class="nav-link" href="#">
-      <i class="fas fa-user-circle">
-      </i>
-     </a>
-    </li>
-   </ul>
-  </div>
-  <div class="content container">
-   <div class="title">
-    <i class="fas fa-clipboard-list">
-    </i>
-    <h2>
-     Flashcards
-    </h2>
-   </div>
-   <div class="tabs">
-    <ul class="nav nav-pills">
-     <li class="nav-item">
-      <a class="nav-link active" href="#">
-       List từ của tôi
-      </a>
-     </li>
-     <li class="nav-item">
-      <a class="nav-link" href="#">
-       Đang học
-      </a>
-     </li>
-     <li class="nav-item">
-      <a class="nav-link" href="#">
-       Khám phá
-      </a>
-     </li>
-    </ul>
-   </div>
-   <div class="alert">
-    <i class="fas fa-info-circle">
-    </i>
-    Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights các bạn đã tạo trước đây) trong trang chi tiết kết quả bài thi.
-    <a href="#">
-     Xem hướng dẫn.
-    </a>
-   </div>
-   <div class="row">
-    <div class="col-md-8">
-     <h4>
-      Đang học:
-     </h4>
-     <p>
-      Bạn chưa học list từ nào. Khám phá ngay hoặc bắt đầu tạo các list từ mới.
-     </p>
-     <h4>
- List từ đã tạo:
-</h4>
-<div class="list-group">
- <a href="CreateList.html" class="list-group-item">
-  <i class="fas fa-plus-circle"></i> Tạo list từ
- </a>
- <p>Chưa có list từ nào.</p>
-</div>
+  <body>
+    <div class="header d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img
+          alt="Logo"
+          src="https://www.hpsm.org/images/default-source/icons/language-services.png/40x40"
+        />
+        <span class="ms-2 text-white">HelloAsia</span>
+      </div>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Khoá học của tôi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Chương trình học</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Đề thi online</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Flashcards</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Kích hoạt tài khoản</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a>
+        </li>
+      </ul>
     </div>
-    <div class="col-md-4 sidebar">
-     <img alt="" src="https://img.graphicsurf.com/2020/06/Kid-English-learning-vector-design.jpg/300x150"/>
-     <img alt="" src="https://dv8communication.com/wp-content/uploads/2023/04/Chinese-Language-scaled.jpg/300x150"/>
-     <img alt="" src="https://th.bing.com/th/id/R.d09af87f104224ec4da00c6f95d8756f?rik=YBoS%2fRloHiR5Sw&pid=ImgRaw&r=0/300x150"/>
+
+    <div class="content container">
+      <div class="title">
+        <i class="fas fa-clipboard-list"></i>
+        <h2>Flashcards</h2>
+      </div>
+
+      <div class="tabs">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">List từ của tôi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đang học</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Khám phá</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="alert">
+        <i class="fas fa-info-circle"></i>
+        Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights các bạn đã tạo trước đây) trong trang chi tiết kết quả bài thi.
+        <a href="#">Xem hướng dẫn.</a>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <h4>Đang học:</h4>
+          <p>Bạn chưa học list từ nào. Khám phá ngay hoặc bắt đầu tạo các list từ mới.</p>
+          <h4>List từ đã tạo:</h4>
+          <div class="list-group">
+            <a href="CreateList.html" class="list-group-item">
+              <i class="fas fa-plus-circle"></i> Tạo list từ
+            </a>
+            <p>Chưa có list từ nào.</p>
+          </div>
+        </div>
+        <div class="col-md-4 sidebar">
+          <img
+            alt="Learning image"
+            src="https://img.graphicsurf.com/2020/06/Kid-English-learning-vector-design.jpg/300x150"
+          />
+          <img
+            alt="Chinese learning"
+            src="https://dv8communication.com/wp-content/uploads/2023/04/Chinese-Language-scaled.jpg/300x150"
+          />
+          <img
+            alt="Language image"
+            src="https://th.bing.com/th/id/R.d09af87f104224ec4da00c6f95d8756f?rik=YBoS%2fRloHiR5Sw&pid=ImgRaw&r=0/300x150"
+          />
+        </div>
+      </div>
     </div>
-   </div>
-  </div>
- </body>
+  </body>
 </html>
