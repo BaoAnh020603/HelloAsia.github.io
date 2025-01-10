@@ -1,19 +1,18 @@
-// Lắng nghe sự kiện submit của form
 document.getElementById('listForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Ngăn chặn hành động mặc định của form
 
-    // Lấy giá trị từ các trường nhập liệu
-    const word = document.getElementById('word').value;
-    const definition = document.getElementById('definition').value;
+    const word = document.getElementById('word').value; // Lấy giá trị từ input "word"
+    const definition = document.getElementById('definition').value; // Lấy giá trị từ input "definition"
 
-    // Tạo một phần tử danh sách mới
-    const listItem = document.createElement('li');
-    listItem.className = 'list-group-item';
-    listItem.innerHTML = `<strong>${word}</strong>: ${definition}`;
+    if (word && definition) { // Kiểm tra nếu cả hai trường đều không rỗng
+        const listItem = document.createElement('li'); // Tạo phần tử li
+        listItem.className = 'list-group-item'; // Thêm lớp Bootstrap
+        listItem.innerHTML = `<strong>${word}</strong>: ${definition}`; // Chèn nội dung
 
-    // Thêm phần tử danh sách vào danh sách hiển thị
-    document.getElementById('wordList').appendChild(listItem);
-
-    // Xóa nội dung của form sau khi lưu
-    document.getElementById('listForm').reset();
+        document.getElementById('wordList').appendChild(listItem); // Thêm li vào ul
+        document.getElementById('listForm').reset(); // Xóa nội dung form
+    } else {
+        alert('Vui lòng nhập đầy đủ thông tin!');
+    }
+    console.log(word, definition);
 });
