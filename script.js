@@ -23,10 +23,11 @@
         lines.forEach(line => {
             if (line.trim()) { // Kiểm tra dòng không rỗng
                 const li = document.createElement('li');
+                li.className = 'list-group-item'; // Thêm lớp cho danh sách
                 li.textContent = line.trim(); // Thêm từ vựng vào danh sách
                 vocabularyItems.appendChild(li);
             }
         });
-        document .getElementById('vocabulary-list').style.display = 'block'; // Hiển thị danh sách từ vựng
+        document.getElementById('vocabulary-list').style.display = 'block'; // Hiển thị danh sách từ vựng
     }
 </script>
