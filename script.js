@@ -1,33 +1,21 @@
 <script>
-    document.getElementById('basic-vocabulary-title').addEventListener('click', function() {
-        const vocabularyList = document.getElementById('vocabulary-list');
-        vocabularyList.style.display = vocabularyList.style.display === 'none' ? 'block' : 'none';
-    });
-
-    document.getElementById('fileInput').addEventListener('change', function(event) {
+    document.getElementById("fileInput").addEventListener("change", function(event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
                 const content = e.target.result;
-                displayVocabulary(content);
+                const vocabularyItems = content.split("\n").filter(item => item.trim() !== "");
+                const vocabularyList = document.getElementById("vocabularyItems");
+                vocabularyList.innerHTML = ""; // Clear previous items
+                vocabularyItems.forEach(word => {
+                    const li = document.createElement("li");
+                    li.textContent = word;
+                    vocabularyList.appendChild(li);
+                });
+                document.getElementById("vocabulary-list").style.display = "block";
             };
             reader.readAsText(file);
         }
     });
-
-    function displayVocabulary(content) {
-        const vocabularyItems = document.getElementById('vocabularyItems');
-        vocabularyItems.innerHTML = ''; // Xóa nội dung cũ
-        const lines = content.split('\n'); // Tách nội dung theo dòng
-        lines.forEach(line => {
-            if (line.trim()) { // Kiểm tra dòng không rỗng
-                const li = document.createElement('li');
-                li.className = 'list-group-item'; // Thêm lớp cho danh sách
-                li.textContent = line.trim(); // Thêm từ vựng vào danh sách
-                vocabularyItems.appendChild(li);
-            }
-        });
-        document.getElementById('vocabulary-list').style.display = 'block'; // Hiển thị danh sách từ vựng
-    }
 </script>
