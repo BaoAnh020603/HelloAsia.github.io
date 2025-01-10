@@ -1,117 +1,93 @@
-<html>
- <head>
-  <title>
-   Flashcards
-  </title>
-  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  </head>
- <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-     <i class="fas fa-book"></i>
-     STUDY4
-    </a>
-    <div class="collapse navbar-collapse">
-     <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        Khóa học của tôi
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        Chương trình học
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        Đề thi online
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        Flashcards
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        Blog
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        Kích hoạt tài khoản
-       </a>
-      </li>
-      <li class="nav-item">
-       <a class="nav-link" href="#">
-        <i class="fas fa-user-circle">
-        </i>
-       </a>
-      </li>
-     </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo list từ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-book"></i>
+                HelloAsia
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Khóa học của tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chương trình học</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đề thi online</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Flashcards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kích hoạt tài khoản</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header text-center">
+        <div class="container">
+            <div class="title">
+                Flashcards
+            </div>
+        </div>
     </div>
-   </div>
-  </nav>
-  <div class="header text-center">
-   <div class="container">
-    <div class="title">
-     Flashcards
+
+    <div class="content">
+        <div class="container">
+            <div class="btn-group mb-3" role="group">
+                <button class="btn" type="button">List từ của tôi</button>
+                <button class="btn" type="button">Đang học</button>
+                <button class="btn" type="button">Khám phá</button>
+            </div>
+            <div class="alert alert-success" role="alert">
+                <i class="fas fa-info-circle"></i>
+                Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights các bạn đã tạo trước đây) trong trang chi tiết kết quả bài thi. Xem hướng dẫn.
+            </div>
+            <h5>Đang học:</h5>
+            <p>Bạn chưa học list từ nào. Khám phá ngay hoặc bắt đầu tạo các list từ mới.</p>
+            <h5>List từ đã tạo:</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-plus"></i>
+                                Tạo list từ
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-   </div>
-  </div>
-  <div class="content">
-   <div class="container">
-    <div class="btn-group mb-3" role="group">
-     <button class="btn" type="button">
-      List từ của tôi
-     </button>
-     <button class="btn" type="button">
-      Đang học
-     </button>
-     <button class="btn" type="button">
-      Khám phá
-     </button>
+
+    <div class="footer text-center">
+        <div class="container">
+            <p>Bản quyền thuộc về HelloAsia © 2025</p>
+        </div>
     </div>
-    <div class="alert alert-success" role="alert">
-     <i class="fas fa-info-circle">
-     </i>
-     Chú ý: Bạn có thể tạo flashcards từ highlights (bao gồm các highlights các bạn đã tạo trước đây) trong trang chi tiết kết quả bài thi. Xem hướng dẫn.
-    </div>
-    <h5>
-     Đang học:
-    </h5>
-    <p>
-     Bạn chưa học list từ nào. Khám phá ngay hoặc bắt đầu tạo các list từ mới.
-    </p>
-    <h5>
-     List từ đã tạo:
-    </h5>
-    <div class="row">
-     <div class="col-md-3">
-      <div class="card text-center">
-       <div class="card-body">
-        <h5 class="card-title">
-         <i class="fas fa-plus">
-         </i>
-         Tạo list từ
-        </h5>
-       </div>
-      </div>
-     </div>
-    </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-  <div class="footer text-center">
-   <div class="container">
-    <p>
-     Bản quyền thuộc về HelloAsia © 2025
-    </p>
-   </div>
-  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+3i5o5p5Vb5mY5f5d5f5d5f5d5f5d" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
