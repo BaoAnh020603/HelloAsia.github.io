@@ -1,4 +1,5 @@
-<script>
+ <!-- JavaScript -->
+    <script>
         function openModal() {
             document.getElementById('createListModal').classList.add('active');
         }
