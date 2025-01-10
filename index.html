@@ -123,7 +123,48 @@
             <p>Bản quyền thuộc về HelloAsia © 2025</p>
         </div>
     </div>
+<div class="container mt-4">
+    <!-- Nút mở form -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createWordListModal">Tạo list từ</button>
 
+    <!-- Danh sách từ -->
+    <h5 class="mt-4">Danh sách từ đã tạo:</h5>
+    <ul class="list-group" id="wordList"></ul>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createWordListModal" tabindex="-1" aria-labelledby="createWordListModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createWordListModalLabel">Tạo list từ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="wordListForm">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Tiêu đề*</label>
+                        <input type="text" class="form-control" id="title" placeholder="Nhập tiêu đề" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="language" class="form-label">Ngôn ngữ*</label>
+                        <select class="form-select" id="language" required>
+                            <option value="Tiếng Anh-Mỹ" selected>Tiếng Anh-Mỹ</option>
+                            <option value="Tiếng Anh-Anh">Tiếng Anh-Anh</option>
+                            <option value="Tiếng Việt">Tiếng Việt</option>
+                            <option value="Ngôn ngữ khác">Ngôn ngữ khác</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Mô tả</label>
+                        <textarea class="form-control" id="description" rows="3" placeholder="Nhập mô tả (tuỳ chọn)"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
