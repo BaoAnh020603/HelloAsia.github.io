@@ -1,4 +1,11 @@
 <style>
+#vocabulary-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #vocabulary-list li {
+            padding: 5px 0;
+        }
     .hidden {
             display: none;
         }
