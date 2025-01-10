@@ -1,4 +1,10 @@
 <style>
+    .hidden {
+            display: none;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
     body {
         background-color: #f5f5f5;
     }
