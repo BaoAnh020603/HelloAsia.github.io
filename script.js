@@ -1,26 +1,26 @@
-<script>
-    document.getElementById('wordListForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+// Lấy form và các trường nhập liệu
+const listForm = document.getElementById('listForm');
+const wordInput = document.getElementById('word');
+const definitionInput = document.getElementById('definition');
+const wordList = document.getElementById('wordList');
 
-        const title = document.getElementById('title').value.trim();
-        const language = document.getElementById('language').value;
-        const description = document.getElementById('description').value.trim();
+// Lắng nghe sự kiện submit của form
+listForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // Ngừng hành động mặc định của form (tải lại trang)
 
-        if (!title) {
-            alert('Vui lòng nhập tiêu đề!');
-            return;
-        }
+    // Lấy giá trị nhập từ form
+    const word = wordInput.value;
+    const definition = definitionInput.value;
 
-        const wordList = document.getElementById('wordList');
-        const listItem = document.createElement('li');
-        listItem.className = 'list-group-item';
-        listItem.textContent = `${title} (${language}) - ${description || 'Không có mô tả'}`;
+    // Tạo phần tử li mới
+    const li = document.createElement('li');
+    li.classList.add('list-group-item');
+    li.innerHTML = `<strong>${word}</strong>: ${definition}`;
 
-        wordList.appendChild(listItem);
+    // Thêm li vào danh sách
+    wordList.appendChild(li);
 
-        // Reset form và đóng modal
-        document.getElementById('wordListForm').reset();
-        const modal = bootstrap.Modal.getInstance(document.getElementById('createWordListModal'));
-        modal.hide();
-    });
-</script>
+    // Xóa dữ liệu trong form sau khi thêm
+    wordInput.value = '';
+    definitionInput.value = '';
+});
