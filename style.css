@@ -1,45 +1,73 @@
-<style>
-   body {
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            background-color: #f8f9fa;
-        }
-        .navbar-nav .nav-link {
-            color: #000;
-        }
-        .header {
-            background-color: #f8e8e8;
-            padding: 10px 0;
-        }
-        .header .title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .content {
-            background: linear-gradient(to right, #e0f7fa, #b2ebf2);
-            padding: 20px;
-        }
-        .content .btn-group .btn {
-            background-color: #e0f7fa;
-            border: 1px solid #b2ebf2;
-            color: #000;
-        }
-        .alert {
-            background-color: #e8f5e9;
-            color: #388e3c;
-        }
-        .list-group-item {
-            border: none;
-        }
-        .card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .footer {
-            background-color: #f8f9fa;
-            padding: 20px;
-        }
-  </style>
+/* Mã CSS của bạn */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Thêm màu nền cho body */
+}
+.navbar {
+    background-color: #f8f9fa;
+}
+.navbar-nav .nav-link {
+    color: #000;
+}
+.header {
+    background-color: #f8e8e8;
+    padding: 10px 0;
+}
+.header .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.content {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+    padding: 20px;
+}
+.content .btn-group .btn {
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    color: #000;
+}
+.alert {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+.list-group-item {
+    border: none;
+}
+.card {
+    border: 1px solid #ced4da; /* Thêm border cho card */
+    border-radius: 10px; /* Thêm border-radius cho card */
+    padding: 20px; /* Thêm padding cho card */
+    margin-bottom: 20px; /* Thêm margin-bottom cho card */
+}
+.card-header {
+    background-color: #e9ecef; /* Thêm màu nền cho card-header */
+    color: #495057; /* Thêm màu chữ cho card-header */
+    border-top-left-radius: 10px; /* Thêm border-radius cho góc trên bên trái */
+    border-top-right-radius: 10px; /* Thêm border-radius cho góc trên bên phải */
+}
+.card-title {
+    font-size: 24px; /* Thay đổi kích thước chữ cho card-title */
+    font-weight: bold; /* Đặt font-weight cho card-title */
+}
+.btn-close {
+    color: #495057; /* Thay đổi màu cho nút đóng */
+}
+.form-label {
+    font-weight: bold; /* Đặt font-weight cho label */
+    color: #495057; /* Thay đổi màu chữ cho label */
+}
+.btn-primary {
+    background-color: #6c757d; /* Thay đổi màu nền cho nút chính */
+    border-color: #6c757d; /* Thay đổi màu border cho nút chính */
+}
+.btn-primary:hover {
+    background-color: #5a6268; /* Thay đổi màu nền khi hover */
+    border-color: #5a6268; /* Thay đổi màu border khi hover */
+}
+.list-group {
+    margin-top: 20px; /* Thêm margin-top cho list-group */
+}
+.footer {
+    background-color: #f8f9fa; /* Thêm màu nền cho footer */
+    padding: 20px; /* Thêm padding cho footer */
+}
