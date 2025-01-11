@@ -133,9 +133,6 @@ a:hover {
     font-size: 20px; /* Giảm kích thước biểu tượng */
     margin-right: 5px; /* Giảm khoảng cách giữa biểu tượng và chữ */
 }
-.hidden {
-    display: none;
-}
 .sidebar {
     position: relative;
 }
