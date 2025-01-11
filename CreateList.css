@@ -51,4 +51,14 @@ form h3 {
 .btn:hover {
     background: #0056b3;
 }
+ .hidden {
+            display: none;
+        }
 
+        #createListContainer {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
