@@ -133,19 +133,17 @@ a:hover {
     margin-right: 10px;
 }
 
-/* Sidebar */
 .sidebar {
-    margin-top: 20px;
+    position: relative;
 }
 
 .sidebar img {
-    width: 100%;
+    width: 150px; /* Kích thước nhỏ hơn */
     border-radius: 10px;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 10px; /* Căn chỉnh khoảng cách từ trên */
+    right: 10px; /* Căn chỉnh khoảng cách từ phải */
+    margin-bottom: 10px; /* Duy trì khoảng cách phía dưới */
 }
 
-.sidebar h5 {
-    color: #4a90e2;
-    font-weight: 500;
-}
 
