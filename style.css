@@ -118,19 +118,20 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
+    height: 100px; /* Giảm chiều cao */
     border: 1px dashed #ccc;
     border-radius: 10px;
     margin-bottom: 10px;
     background-color: #fff;
     color: #4a90e2;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px; /* Giảm kích thước chữ */
+    padding: 10px; /* Giảm khoảng cách bên trong */
 }
 
 .list-group-item i {
-    font-size: 24px;
-    margin-right: 10px;
+    font-size: 20px; /* Giảm kích thước biểu tượng */
+    margin-right: 5px; /* Giảm khoảng cách giữa biểu tượng và chữ */
 }
 
 .sidebar {
