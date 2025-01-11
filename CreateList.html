@@ -3,13 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập</title>
+    <title>Tạo List</title>
     <link rel="stylesheet" href="CreateList.css">
     <style>
-        .saved-list {
-            margin-top: 20px;
-            border: 1px solid #ccc;
+        form, #createListContainer {
+            max-width: 400px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
             padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #savedList {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -38,58 +99,55 @@
         <button type="submit" class="btn btn-primary">Lưu</button>
     </form>
 
-    <div id="savedList" class="saved-list" style="display: none;">
+    <div id="savedList" class="hidden">
         <h4>Danh sách đã lưu:</h4>
         <p><strong>Tiêu đề:</strong> <span id="savedTitle"></span></p>
         <p><strong>Ngôn ngữ:</strong> <span id="savedLanguage"></span></p>
         <p><strong>Mô tả:</strong> <span id="savedDescription"></span></p>
     </div>
 </div>
+
 <script>
     document.getElementById('createListForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Ngăn chặn hành động gửi form mặc định
 
         // Lấy giá trị từ form
-        const title = document.getElementById('title').value.trim();
+        const title = document.getElementById('title').value;
         const language = document.getElementById('language').value;
-        const description = document.getElementById('description').value.trim();
+        const description = document.getElementById('description').value;
 
-        // Kiểm tra giá trị đầu vào (trường hợp input trống hoặc lỗi)
-        if (!title) {
-            alert('Vui lòng nhập tiêu đề!');
-            return;
-        }
+        // Encode các giá trị trước khi thêm vào URL
+        const encodedTitle = encodeURIComponent(title);
+        const encodedLanguage = encodeURIComponent(language);
+        const encodedDescription = encodeURIComponent(description);
 
-        // Lưu thông tin vào localStorage
-        localStorage.setItem('savedTitle', title);
-        localStorage.setItem('savedLanguage', language);
-        localStorage.setItem('savedDescription', description);
+        // Tạo URL mới với các tham số
+        const newUrl = `${window.location.origin}${window.location.pathname}?title=${encodedTitle}&language=${encodedLanguage}&description=${encodedDescription}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
 
-        // Hiển thị thông tin đã lưu
-        displaySavedList();
+        // Hiển thị thông tin đã lưu ngay trên trang
+        displaySavedList(title, language, description);
     });
 
-    function displaySavedList() {
-        // Lấy thông tin từ localStorage
-        const savedTitle = localStorage.getItem('savedTitle') || '';
-        const savedLanguage = localStorage.getItem('savedLanguage') || '';
-        const savedDescription = localStorage.getItem('savedDescription') || '';
-
+    function displaySavedList(title, language, description) {
         // Cập nhật nội dung hiển thị
-        document.getElementById('savedTitle').innerText = savedTitle;
-        document.getElementById('savedLanguage').innerText = savedLanguage;
-        document.getElementById('savedDescription').innerText = savedDescription;
+        document.getElementById('savedTitle').innerText = title;
+        document.getElementById('savedLanguage').innerText = language;
+        document.getElementById('savedDescription').innerText = description;
 
-        // Hiển thị phần danh sách đã lưu nếu có tiêu đề
-        if (savedTitle) {
-            document.getElementById('savedList').style.display = 'block';
-        }
+        // Hiển thị phần danh sách đã lưu
+        document.getElementById('savedList').classList.remove('hidden');
     }
 
-    // Kiểm tra nếu có thông tin đã lưu khi tải trang
+    // Kiểm tra nếu có thông tin trong URL khi tải trang
     window.onload = function() {
-        if (localStorage.getItem('savedTitle')) {
-            displaySavedList();
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = urlParams.get('title');
+        const language = urlParams.get('language');
+        const description = urlParams.get('description');
+
+        if (title && language && description) {
+            displaySavedList(decodeURIComponent(title), decodeURIComponent(language), decodeURIComponent(description));
         }
     };
 </script>
