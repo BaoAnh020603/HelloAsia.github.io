@@ -3,99 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tạo List và Hiển thị Card</title>
+    <title>Tạo List Từ</title>
+    <link rel="stylesheet" href="CreateList.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-
-        #createListContainer {
-            max-width: 400px;
-            width: 100%;
-            margin-bottom: 20px;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        form h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .form-control:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-            outline: none;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #0056b3;
-        }
-
-        .cards-container {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 16px;
-            text-align: left;
-            width: 100%;
-        }
-
-        .card h4 {
-            margin: 0 0 10px;
-            font-size: 18px;
-        }
-
-        .card p {
-            margin: 5px 0;
-            font-size: 14px;
-            color: #555;
-        }
+        /* Nội dung CSS không thay đổi */
     </style>
 </head>
 <body>
@@ -123,43 +34,17 @@
             </div>
             <button type="submit" class="btn">Lưu</button>
         </form>
+
+        <!-- Saved list info -->
+        <div id="savedList" class="hidden">
+            <h4>Danh sách đã lưu:</h4>
+            <p><strong>Tiêu đề:</strong> <span id="savedTitle"></span></p>
+            <p><strong>Ngôn ngữ:</strong> <span id="savedLanguage"></span></p>
+            <p><strong>Mô tả:</strong> <span id="savedDescription"></span></p>
+        </div>
     </div>
 
-    <!-- Container for displaying saved cards -->
-    <div class="cards-container" id="cardsContainer"></div>
-
-    <script>
-        document.getElementById('createListForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Ngăn chặn hành động gửi form mặc định
-
-            // Lấy giá trị từ form
-            const title = document.getElementById('title').value;
-            const language = document.getElementById('language').value;
-            const description = document.getElementById('description').value;
-
-            // Hiển thị danh sách vừa tạo
-            addCard(title, language, description);
-
-            // Reset form
-            document.getElementById('createListForm').reset();
-        });
-
-        function addCard(title, language, description) {
-            // Lấy container
-            const cardsContainer = document.getElementById('cardsContainer');
-
-            // Tạo phần tử card
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <h4>${title}</h4>
-                <p><strong>Ngôn ngữ:</strong> ${language}</p>
-                <p><strong>Mô tả:</strong> ${description}</p>
-            `;
-
-            // Thêm card vào container
-            cardsContainer.appendChild(card);
-        }
-    </script>
+    <!-- Liên kết JavaScript -->
+    <script src="CreateList.js"></script>
 </body>
 </html>
