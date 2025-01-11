@@ -4,83 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo List và Hiển thị Card</title>
-    <link rel="stylesheet" href="CreateList.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f5f5f5;
             flex-direction: column;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
 
-        .card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 16px;
-            width: 300px;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .card h3 {
-            font-size: 18px;
-            margin: 0 0 8px 0;
-        }
-
-        .card .icon-text {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 16px;
-        }
-
-        .card .icon-text i {
-            margin-right: 4px;
-        }
-
-        .card .user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .card .user-info .avatar {
-            background-color: #d9d9d9;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            color: #333;
-            margin-right: 8px;
-        }
-
-        .card .user-info .username {
-            font-size: 14px;
-            color: #333;
-        }
-
-        form, #createListContainer {
+        #createListContainer {
             max-width: 400px;
-            margin: auto;
+            width: 100%;
+            margin-bottom: 20px;
             background: #ffffff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
         }
 
         form h3 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 24px;
         }
 
         .form-group {
@@ -90,7 +38,6 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-weight: 500;
         }
 
         .form-control {
@@ -98,7 +45,6 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 14px;
         }
 
         .form-control:focus {
@@ -123,33 +69,36 @@
             background: #0056b3;
         }
 
-        .hidden {
-            display: none;
+        .cards-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        #savedList {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .card h4 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <!-- Card info -->
-    <div class="card">
-        <h3>Từ Vựng Cơ Bản</h3>
-        <div class="icon-text">
-            <i class="fas fa-clone"></i>
-            <span>0 từ</span>
-        </div>
-        <div class="user-info">
-            <div class="avatar">B</div>
-            <div class="username">baoanh020603</div>
-        </div>
-    </div>
-
     <!-- Form to create list -->
     <div id="createListContainer">
         <h3>Tạo List Từ</h3>
@@ -174,15 +123,10 @@
             </div>
             <button type="submit" class="btn">Lưu</button>
         </form>
-
-        <!-- Saved list info -->
-        <div id="savedList" class="hidden">
-            <h4>Danh sách đã lưu:</h4>
-            <p><strong>Tiêu đề:</strong> <span id="savedTitle"></span></p>
-            <p><strong>Ngôn ngữ:</strong> <span id="savedLanguage"></span></p>
-            <p><strong>Mô tả:</strong> <span id="savedDescription"></span></p>
-        </div>
     </div>
+
+    <!-- Container for displaying saved cards -->
+    <div class="cards-container" id="cardsContainer"></div>
 
     <script>
         document.getElementById('createListForm').addEventListener('submit', function(event) {
@@ -193,40 +137,29 @@
             const language = document.getElementById('language').value;
             const description = document.getElementById('description').value;
 
-            // Encode các giá trị trước khi thêm vào URL
-            const encodedTitle = encodeURIComponent(title);
-            const encodedLanguage = encodeURIComponent(language);
-            const encodedDescription = encodeURIComponent(description);
+            // Hiển thị danh sách vừa tạo
+            addCard(title, language, description);
 
-            // Tạo URL mới với các tham số
-            const newUrl = `${window.location.origin}${window.location.pathname}?title=${encodedTitle}&language=${encodedLanguage}&description=${encodedDescription}`;
-            window.history.pushState({ path: newUrl }, '', newUrl);
-
-            // Hiển thị thông tin đã lưu ngay trên trang
-            displaySavedList(title, language, description);
+            // Reset form
+            document.getElementById('createListForm').reset();
         });
 
-        function displaySavedList(title, language, description) {
-            // Cập nhật nội dung hiển thị
-            document.getElementById('savedTitle').innerText = title;
-            document.getElementById('savedLanguage').innerText = language;
-            document.getElementById('savedDescription').innerText = description;
+        function addCard(title, language, description) {
+            // Lấy container
+            const cardsContainer = document.getElementById('cardsContainer');
 
-            // Hiển thị phần danh sách đã lưu
-            document.getElementById('savedList').classList.remove('hidden');
+            // Tạo phần tử card
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h4>${title}</h4>
+                <p><strong>Ngôn ngữ:</strong> ${language}</p>
+                <p><strong>Mô tả:</strong> ${description}</p>
+            `;
+
+            // Thêm card vào container
+            cardsContainer.appendChild(card);
         }
-
-        // Kiểm tra nếu có thông tin trong URL khi tải trang
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const title = urlParams.get('title');
-            const language = urlParams.get('language');
-            const description = urlParams.get('description');
-
-            if (title && language && description) {
-                displaySavedList(decodeURIComponent(title), decodeURIComponent(language), decodeURIComponent(description));
-            }
-        };
     </script>
 </body>
 </html>
