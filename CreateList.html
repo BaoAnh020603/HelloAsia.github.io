@@ -155,45 +155,51 @@
     <!-- JavaScript -->
     <script>
         // Lấy các phần tử cần thiết
-        const createListButton = document.getElementById("createListButton");
-        const popupForm = document.getElementById("popupForm");
-        const saveListButton = document.getElementById("saveListButton");
-        const listItemsContainer = document.querySelector(".list-items");
+const createListButton = document.getElementById("createListButton");
+const popupForm = document.getElementById("popupForm");
+const saveListButton = document.getElementById("saveListButton");
+const listItemsContainer = document.querySelector(".list-items");
 
-        // Sự kiện click để mở form tạo list
-        createListButton.addEventListener("click", () => {
-            popupForm.classList.remove("hidden"); // Hiển thị popup
-        });
+// Kiểm tra xem mục "Tạo list từ" đã tồn tại chưa
+let createListExists = true;
 
-        // Sự kiện click để lưu list từ
-        saveListButton.addEventListener("click", () => {
-            const title = document.getElementById("title").value;
-            const language = document.getElementById("language").value;
-            const description = document.getElementById("description").value;
+// Sự kiện click để mở form tạo list
+createListButton.addEventListener("click", () => {
+    popupForm.classList.remove("hidden"); // Hiển thị popup
+});
 
-            if (title.trim() === "" || language.trim() === "") {
-                alert("Vui lòng điền đầy đủ thông tin bắt buộc!");
-                return;
-            }
+// Sự kiện click để lưu list từ
+saveListButton.addEventListener("click", () => {
+    const title = document.getElementById("title").value;
+    const language = document.getElementById("language").value;
+    const description = document.getElementById("description").value;
 
-            // Tạo thẻ mới cho list từ
-            const newList = document.createElement("div");
-            newList.className = "list-item";
-            newList.innerHTML = `
-                <h3>${title}</h3>
-                <p>Ngôn ngữ: ${language}</p>
-                <p>${description || "Không có mô tả"}</p>
-            `;
+    if (title.trim() === "" || language.trim() === "") {
+        alert("Vui lòng điền đầy đủ thông tin bắt buộc!");
+        return;
+    }
 
-            // Thêm vào danh sách
-            listItemsContainer.appendChild(newList);
+    // Tạo thẻ mới cho list từ
+    const newList = document.createElement("div");
+    newList.className = "list-item";
+    newList.innerHTML = `
+        <h3>${title}</h3>
+        <p>Ngôn ngữ: ${language}</p>
+        <p>${description || "Không có mô tả"}</p>
+    `;
 
-            // Đóng popup và reset form
-            popupForm.classList.add("hidden");
-            document.getElementById("title").value = "";
-            document.getElementById("language").value = "";
-            document.getElementById("description").value = "";
-        });
+    // Thêm vào danh sách nếu chưa có
+    if (createListExists) {
+        listItemsContainer.appendChild(newList);
+        createListExists = false; // Đánh dấu là đã thêm mục "Tạo list từ"
+    }
+
+    // Đóng popup và reset form
+    popupForm.classList.add("hidden");
+    document.getElementById("title").value = "";
+    document.getElementById("language").value = "";
+    document.getElementById("description").value = "";
+});
     </script>
 </body>
 </html>
