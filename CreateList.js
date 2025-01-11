@@ -1,43 +1,61 @@
-document.getElementById('createListForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Ngăn chặn hành động gửi form mặc định
+// Lấy các phần tử cần thiết
+const createListButton = document.getElementById("createListButton");
+const popupForm = document.getElementById("popupForm");
+const saveListButton = document.getElementById("saveListButton");
+const listItemsContainer = document.getElementById("listItems");
 
-    // Lấy giá trị từ form
-    const title = document.getElementById('title').value;
-    const language = document.getElementById('language').value;
-    const description = document.getElementById('description').value;
-
-    // Encode các giá trị trước khi thêm vào URL
-    const encodedTitle = encodeURIComponent(title);
-    const encodedLanguage = encodeURIComponent(language);
-    const encodedDescription = encodeURIComponent(description);
-
-    // Tạo URL mới với các tham số
-    const newUrl = `${window.location.origin}${window.location.pathname}?title=${encodedTitle}&language=${encodedLanguage}&description=${encodedDescription}`;
-    window.history.pushState({ path: newUrl }, '', newUrl);
-
-    // Hiển thị thông tin đã lưu ngay trên trang
-    displaySavedList(title, language, description);
+// Hiển thị form khi nhấn vào "Tạo list từ"
+createListButton.addEventListener("click", () => {
+    popupForm.classList.remove("hidden");
 });
 
-function displaySavedList(title, language, description) {
-    // Cập nhật nội dung hiển thị
-    document.getElementById('savedTitle').innerText = title;
-    document.getElementById('savedLanguage').innerText = language;
-    document.getElementById('savedDescription').innerText = description;
+// Thêm danh sách mới khi nhấn nút "Lưu"
+saveListButton.addEventListener("click", () => {
+    // Lấy giá trị từ form
+    const title = document.getElementById("popupTitle").value;
+    const language = document.getElementById("popupLanguage").value;
+    const description = document.getElementById("popupDescription").value;
 
-    // Hiển thị phần danh sách đã lưu
-    document.getElementById('savedList').classList.remove('hidden');
-}
-
-// Kiểm tra nếu có thông tin trong URL khi tải trang
-window.onload = function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const title = urlParams.get('title');
-    const language = urlParams.get('language');
-    const description = urlParams.get('description');
-
-    if (title && language && description) {
-        displaySavedList(decodeURIComponent(title), decodeURIComponent(language), decodeURIComponent(description));
+    // Kiểm tra xem tiêu đề đã được nhập chưa
+    if (!title) {
+        alert("Vui lòng nhập tiêu đề!");
+        return;
     }
-};
 
+    // Tạo một thẻ list mới
+    const newItem = document.createElement("div");
+    newItem.classList.add("list-item");
+
+    newItem.innerHTML = `
+        <h3>${title}</h3>
+        <p>Ngôn ngữ: ${getLanguageName(language)}</p>
+        <p>${description ? description : "Không có mô tả"}</p>
+    `;
+
+    // Thêm danh sách mới vào container
+    listItemsContainer.appendChild(newItem);
+
+    // Ẩn form và xóa dữ liệu trong form
+    popupForm.classList.add("hidden");
+    document.getElementById("popupTitle").value = "";
+    document.getElementById("popupLanguage").value = "en-us";
+    document.getElementById("popupDescription").value = "";
+});
+
+// Hàm để chuyển mã ngôn ngữ thành tên ngôn ngữ
+function getLanguageName(code) {
+    switch (code) {
+        case "en-us":
+            return "Tiếng Anh-Mỹ";
+        case "en-uk":
+            return "Tiếng Anh-Anh";
+        case "vi":
+            return "Tiếng Việt";
+        case "zh":
+            return "Tiếng Trung";
+        case "ko":
+            return "Tiếng Hàn";
+        default:
+            return "Không xác định";
+    }
+}
