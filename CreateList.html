@@ -16,6 +16,10 @@
             margin: 0;
             transition: background-color 0.3s;
         }
+        #content {
+            text-align: center;
+            width: 100%;
+        }
         .modal {
             background-color: white;
             border-radius: 8px;
@@ -23,7 +27,10 @@
             width: 90%;
             max-width: 500px;
             padding: 20px;
-            position: relative;
+            position: absolute;
+            bottom: 20px; /* Đặt modal ở phía dưới */
+            left: 50%;
+            transform: translateX(-50%);
             display: none; /* Ẩn modal ban đầu */
         }
         .modal h2 {
@@ -108,9 +115,9 @@
         document.getElementById('listForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Ngăn chặn hành vi mặc định của form
             // Thêm logic để lưu danh sách ở đây
-            alert('Danh sách đã được lưu!'); // Thông báo cho người dùng
+            alert ('Danh sách đã được lưu!'); // Thông báo cho người dùng
             document.getElementById('modal').style.display = 'none'; // Đóng modal
- document.getElementById('content').classList.remove('hidden'); // Hiện lại phần còn lại của trang
+            document.getElementById('content').classList.remove('hidden'); // Hiện lại phần còn lại của trang
             document.getElementById('listForm').reset(); // Đặt lại form
         });
     </script>
