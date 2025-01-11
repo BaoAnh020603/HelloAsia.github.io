@@ -14,6 +14,9 @@
         h1 {
             color: #333;
         }
+        #formContainer {
+            margin-bottom: 20px;
+        }
         ul {
             list-style-type: none;
             padding: 0;
@@ -25,10 +28,11 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-        input[type="text"] {
+        input[type="text"], input[type="textarea"] {
             padding: 10px;
-            width: 80%;
+            width: 70%;
             margin-right: 10px;
+            margin-bottom: 10px;
         }
         button {
             padding: 10px 15px;
@@ -46,8 +50,12 @@
 <body>
 
     <h1>Tạo Danh Sách</h1>
-    <input type="text" id="itemInput" placeholder="Nhập mục mới...">
-    <button onclick="addItem()">Thêm vào danh sách</button>
+    <div id="formContainer">
+        <input type="text" id="titleInput" placeholder="Tiêu đề*" required>
+        <input type="text" id="languageInput" placeholder="Ngôn ngữ*" required>
+        <textarea id="descriptionInput" placeholder="Mô tả" rows="4" style="width: 70%;"></textarea>
+        <button onclick="addItem()">Tạo danh sách</button>
+    </div>
 
     <ul id="itemList">
         <!-- Danh sách sẽ được thêm vào đây -->
@@ -55,16 +63,27 @@
 
     <script>
         function addItem() {
-            var input = document.getElementById("itemInput");
-            var newItem = input.value.trim();
+            var title = document.getElementById("titleInput").value.trim();
+            var language = document.getElementById("languageInput").value.trim();
+            var description = document.getElementById("descriptionInput").value.trim();
 
-            if (newItem) {
+            if (title && language) {
+                // Tạo phần tử li mới
                 var li = document.createElement("li");
-                li.textContent = newItem;
+                li.innerHTML = `<strong>Tiêu đề:</strong> ${title}<br>
+                                <strong>Ngôn ngữ:</strong> ${language}<br>
+                                <strong>Mô tả:</strong> ${description}`;
                 document.getElementById("itemList").appendChild(li);
-                input.value = ""; // Xóa input sau khi thêm
+                
+                // Ẩn form sau khi thêm mục
+                document.getElementById("formContainer").style.display = "none";
+                
+                // Xóa input sau khi thêm
+                document.getElementById("titleInput").value = ""; 
+                document.getElementById("languageInput").value = ""; 
+                document.getElementById("descriptionInput").value = ""; 
             } else {
-                alert("Vui lòng nhập một mục!");
+                alert("Vui lòng nhập Tiêu đề và Ngôn ngữ!");
             }
         }
     </script>
