@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tạo list từ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Form Tạo List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,110 +13,72 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            transition: background-color 0.3s;
         }
-        #content {
-            text-align: center;
-            width: 100%;
-        }
-        .modal {
+        #formContainer {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
             width: 90%;
-            max-width: 500px;
-            padding: 20px;
-            position: absolute;
-            bottom: 20px; /* Đặt modal ở phía dưới */
-            left: 50%;
-            transform: translateX(-50%);
-            display: none; /* Ẩn modal ban đầu */
+            max-width: 300px;
+            text-align: center;
         }
-        .modal h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
+        h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
         }
-        .modal label {
+        label {
             display: block;
             margin-bottom: 5px;
+            font-size: 14px;
             font-weight: bold;
+            text-align: left;
         }
-        .modal input[type="text"],
-        .modal select,
-        .modal textarea {
+        input[type="text"], select, textarea {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
+            padding: 8px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 14px;
         }
-        .modal button {
+        button {
             background-color: #007bff;
             color: white;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 14px;
         }
-        .modal button:hover {
+        button:hover {
             background-color: #0056b3;
-        }
-        .modal .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .hidden {
-            display: none; /* Lớp để ẩn phần còn lại của trang */
         }
     </style>
 </head>
 <body>
-    <div id="content">
-        <button id="createListBtn">Tạo list từ</button>
-    </div>
-
-    <div class="modal" id="modal">
-        <span class="close">&times;</span>
-        <h2>Tạo list từ</h2>
+    <div id="formContainer">
+        <h2>Tạo List</h2>
         <form id="listForm">
             <label for="title">Tiêu đề*</label>
-            <input type="text" id="title" name="title" required>
-            
+            <input type="text" id="title" name="title" placeholder="Nhập tiêu đề" required>
+
             <label for="language">Ngôn ngữ*</label>
             <select id="language" name="language" required>
                 <option value="tieng-anh-my">Tiếng Anh-Mỹ</option>
             </select>
-            
+
             <label for="description">Mô tả</label>
-            <textarea id="description" name="description"></textarea>
-            
+            <textarea id="description" name="description" placeholder="Nhập mô tả" rows="3"></textarea>
+
             <button type="submit">Lưu</button>
         </form>
     </div>
 
     <script>
-        // Hiển thị modal khi nhấn nút "Tạo list từ"
-        document.getElementById('createListBtn').addEventListener('click', function() {
-            document.getElementById('modal').style.display = 'block';
-            document.getElementById('content').classList.add('hidden'); // Ẩn phần còn lại của trang
-        });
-
-        // Đóng modal khi nhấn nút đóng
-        document.querySelector('.close').addEventListener('click', function() {
-            document.getElementById('modal').style.display = 'none';
-            document.getElementById('content').classList.remove('hidden'); // Hiện lại phần còn lại của trang
-        });
-
-        // Xử lý sự kiện khi gửi form
         document.getElementById('listForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Ngăn chặn hành vi mặc định của form
-            // Thêm logic để lưu danh sách ở đây
-            alert ('Danh sách đã được lưu!'); // Thông báo cho người dùng
-            document.getElementById('modal').style.display = 'none'; // Đóng modal
-            document.getElementById('content').classList.remove('hidden'); // Hiện lại phần còn lại của trang
+            event.preventDefault();
+            alert('Danh sách đã được lưu!');
             document.getElementById('listForm').reset(); // Đặt lại form
         });
     </script>
