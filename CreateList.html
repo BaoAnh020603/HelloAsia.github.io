@@ -46,50 +46,52 @@
     </div>
 </div>
 <script>
-   document.getElementById('createListForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Ngăn chặn hành động gửi form mặc định
+    document.getElementById('createListForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành động gửi form mặc định
 
-    // Lấy giá trị từ form
-    const title = document.getElementById('title').value;
-    const language = document.getElementById('language').value;
-    const description = document.getElementById('description').value;
+        // Lấy giá trị từ form
+        const title = document.getElementById('title').value.trim();
+        const language = document.getElementById('language').value;
+        const description = document.getElementById('description').value.trim();
 
-    console.log("Tiêu đề:", title);
-    console.log("Ngôn ngữ:", language);
-    console.log("Mô tả:", description);
+        // Kiểm tra giá trị đầu vào (trường hợp input trống hoặc lỗi)
+        if (!title) {
+            alert('Vui lòng nhập tiêu đề!');
+            return;
+        }
 
-    // Lưu thông tin vào localStorage
-    localStorage.setItem('savedTitle', title);
-    localStorage.setItem('savedLanguage', language);
-    localStorage.setItem('savedDescription', description);
+        // Lưu thông tin vào localStorage
+        localStorage.setItem('savedTitle', title);
+        localStorage.setItem('savedLanguage', language);
+        localStorage.setItem('savedDescription', description);
 
-    // Hiển thị thông tin đã lưu
-    displaySavedList();
-});
-
-function displaySavedList() {
-    // Lấy thông tin từ localStorage
-    const savedTitle = localStorage.getItem('savedTitle');
-    const savedLanguage = localStorage.getItem('savedLanguage');
-    const savedDescription = localStorage.getItem('savedDescription');
-
-    console.log("Thông tin đã lưu:", savedTitle, savedLanguage, savedDescription);
-
-    // Cập nhật nội dung hiển thị
-    document.getElementById('savedTitle').innerText = savedTitle;
-    document.getElementById('savedLanguage').innerText = savedLanguage;
-    document.getElementById('savedDescription').innerText = savedDescription;
-
-    // Hiển thị phần danh sách đã lưu
-    document.getElementById('savedList').style.display = 'block';
-}
-
-// Kiểm tra nếu có thông tin đã lưu khi tải trang
-window.onload = function() {
-    if (localStorage.getItem('savedTitle')) {
+        // Hiển thị thông tin đã lưu
         displaySavedList();
+    });
+
+    function displaySavedList() {
+        // Lấy thông tin từ localStorage
+        const savedTitle = localStorage.getItem('savedTitle') || '';
+        const savedLanguage = localStorage.getItem('savedLanguage') || '';
+        const savedDescription = localStorage.getItem('savedDescription') || '';
+
+        // Cập nhật nội dung hiển thị
+        document.getElementById('savedTitle').innerText = savedTitle;
+        document.getElementById('savedLanguage').innerText = savedLanguage;
+        document.getElementById('savedDescription').innerText = savedDescription;
+
+        // Hiển thị phần danh sách đã lưu nếu có tiêu đề
+        if (savedTitle) {
+            document.getElementById('savedList').style.display = 'block';
+        }
     }
-};
+
+    // Kiểm tra nếu có thông tin đã lưu khi tải trang
+    window.onload = function() {
+        if (localStorage.getItem('savedTitle')) {
+            displaySavedList();
+        }
+    };
 </script>
 </body>
 </html>
