@@ -18,8 +18,8 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             width: 90%;
-            max-width: 200px;
-            padding: 30px;
+            max-width: 300px; /* Thay đổi kích thước tối đa */
+            padding: 20px; /* Giảm padding */
             position: relative;
             animation: fadeIn 0.5s;
         }
@@ -28,13 +28,13 @@
             to { opacity: 1; }
         }
         .modal h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 24px; /* Giảm kích thước tiêu đề */
+            margin-bottom: 15px; /* Giảm khoảng cách dưới tiêu đề */
             color: #333;
         }
         .modal label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px; /* Giảm khoảng cách dưới nhãn */
             font-weight: bold;
             color: #555;
         }
@@ -42,11 +42,11 @@
         .modal select,
         .modal textarea {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 8px; /* Giảm padding */
+            margin-bottom: 15px; /* Giảm khoảng cách dưới trường nhập */
             border: 1px solid #ccc;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 14px; /* Giảm kích thước font */
             transition: border-color 0.3s;
         }
         .modal input[type="text"]:focus,
@@ -57,10 +57,10 @@
         .modal button {
             background-color: #007bff;
             color: white;
-            padding: 12px 24px;
+            padding: 10px 20px; /* Giảm padding */
             border: none;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 14px; /* Giảm kích thước font */
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -71,7 +71,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 24px;
+            font-size: 20px; /* Giảm kích thước biểu tượng đóng */
             cursor: pointer;
             color: #aaa;
             transition: color 0.3s;
@@ -95,7 +95,7 @@
             </select>
             
             <label for="description">Mô tả</label>
-            <textarea id="description" name="description"></textarea>
+            <textarea id="description" name="description" rows="3"></textarea> <!-- Giảm số hàng của textarea -->
             
             <button type="submit">Lưu</button>
         </form>
