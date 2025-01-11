@@ -2,110 +2,144 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo list từ</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+        /* Reset mặc định */
+        body, h1, form, input, select, textarea, button {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            box-sizing: border-box;
         }
-        .modal {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 250px; /* Giảm kích thước tối đa */
-            padding: 15px; /* Giảm padding */
-            position: relative;
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .modal h2 {
-            font-size: 20px; /* Giảm kích thước tiêu đề */
-            margin-bottom: 10px; /* Giảm khoảng cách dưới tiêu đề */
+
+        /* Toàn bộ trang */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
+            margin: 20px;
         }
-        .modal label {
-            display: block;
-            margin-bottom: 5px; /* Giảm khoảng cách dưới nhãn */
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tiêu đề */
+        .container h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
             color: #555;
         }
-        .modal input[type="text"],
-        .modal select,
-        .modal textarea {
+
+        input[type="text"],
+        select,
+        textarea {
             width: 100%;
-            padding: 8px; /* Giảm padding */
-            margin-bottom: 10px; /* Giảm khoảng cách dưới trường nhập */
+            padding: 10px;
+            margin-top: 5px;
             border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px; /* Giảm kích thước font */
-            transition: border-color 0.3s;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #f9f9f9;
         }
-        .modal input[type="text"]:focus,
-        .modal select:focus,
-        .modal textarea:focus {
-            border-color: #007bff;
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background-color: #fff;
         }
-        .modal button {
-            background-color: #007bff;
+
+        /* Button */
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
             color: white;
-            padding: 8px 16px; /* Giảm padding */
             border: none;
-            border-radius: 6px;
-            font-size: 14px; /* Giảm kích thước font */
+            border-radius: 4px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
-        .modal button:hover {
-            background-color: #0056b3;
+
+        button:hover {
+            background-color: #45a049;
         }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px; /* Giảm kích thước biểu tượng đóng */
-            cursor: pointer;
-            color: #aaa;
-            transition: color 0.3s;
+
+        /* Required field indicator */
+        .asteriskField {
+            color: red;
         }
-        .close:hover {
-            color: #333;
+
+        /* CSRF hidden input */
+        input[type="hidden"] {
+            display: none;
+        }
+
+        /* Textarea */
+        textarea {
+            resize: vertical;
         }
     </style>
 </head>
 <body>
-    <div class="modal">
-        <span class="close">&times;</span>
-        <h2>Tạo list từ</h2>
-        <form>
-            <label for="title">Tiêu đề*</label>
-            <input type="text" id="title" name="title" required>
-            
-            <label for="language">Ngôn ngữ*</label>
-            <select id="language" name="language" required>
-                <option value="tieng-anh-my">Tiếng Anh-Mỹ</option>
-            </select>
-            
-            <label for="description">Mô tả</label>
-            <textarea id="description" name="description" rows="3"></textarea> <!-- Giảm số hàng của textarea -->
-            
-            <button type="submit">Lưu</button>
+    <div class="container">
+        <h1>Tạo list từ</h1>
+        <form action="/flashcards/lists/create/" method="POST" enctype="multipart/form-data" class="jqform">
+            <input name="csrfmiddlewaretoken" type="hidden" value="NiP456y1U4Q1nMYsxPuZRLpZOE0bxWXWMEBkmP4dI9dDQebxVQ2Rp2chbQ9JNlpO">
+            <div id="div_id_title" class="form-group">
+                <label for="id_title" class="requiredField">
+                    Tiêu đề<span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    <input type="text" name="title" maxlength="255" class="textinput textInput form-control" required="" id="id_title">
+                </div>
+            </div>
+            <div id="div_id_source_lang" class="form-group">
+                <label for="id_source_lang" class="requiredField">
+                    Ngôn ngữ<span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    <select name="source_lang" class="select form-control" id="id_source_lang">
+                        <option value="en-US" selected="">Tiếng Anh-Mỹ</option>
+                        <option value="en-GB">Tiếng Anh-Anh</option>
+                        <option value="zh-CN">Tiếng Trung</option>
+                        <option value="ja-JP">Tiếng Nhật</option>
+                        <option value="ko-KR">Tiếng Hàn</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label" for="description">Mô tả</label>
+                <textarea class="form-control" id="field-description" name="description" rows="2" placeholder=""></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </div>
         </form>
     </div>
-    <script>
-        document.querySelector('.close').addEventListener('click', function() {
-            document.querySelector('.modal').style.display = 'none';
-        });
-    </script>
 </body>
 </html>
