@@ -6,41 +6,93 @@
     <title>Tạo List Từ</title>
     <link rel="stylesheet" href="CreateList.css">
     <style>
-        /* Nội dung CSS không thay đổi */
+        .hidden {
+            display: none;
+        }
+        .list-container {
+            margin: 20px;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .popup.hidden {
+            display: none;
+        }
+        .popup-content label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .popup-content input,
+        .popup-content select,
+        .popup-content textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .popup-content button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .popup-content button:hover {
+            background-color: #0056b3;
+        }
+        .list-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .list-item h3 {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
-    <!-- Form to create list -->
-    <div id="createListContainer">
-        <h3>Tạo List Từ</h3>
-        <form id="createListForm">
-            <div class="form-group">
-                <label for="title">Tiêu đề*</label>
-                <input type="text" id="title" name="title" class="form-control" required placeholder="Nhập tiêu đề">
-            </div>
-            <div class="form-group">
-                <label for="language">Ngôn ngữ*</label>
-                <select id="language" name="language" class="form-control" required>
-                    <option value="en-us">Tiếng Anh-Mỹ</option>
-                    <option value="en-uk">Tiếng Anh-Anh</option>
-                    <option value="vi">Tiếng Việt</option>
-                    <option value="zh">Tiếng Trung</option>
-                    <option value="ko">Tiếng Hàn</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Mô tả</label>
-                <textarea id="description" name="description" class="form-control" placeholder="Nhập mô tả"></textarea>
-            </div>
-            <button type="submit" class="btn">Lưu</button>
-        </form>
+    <div class="list-container">
+        <h2>List từ đã tạo:</h2>
+        <div id="listItems" class="list-items">
+            <!-- Các danh sách sẽ được thêm tại đây -->
+        </div>
+        <div class="list-item create-list" id="createListButton">
+            <div class="create-icon">+</div>
+            <p>Tạo list từ</p>
+        </div>
+    </div>
 
-        <!-- Saved list info -->
-        <div id="savedList" class="hidden">
-            <h4>Danh sách đã lưu:</h4>
-            <p><strong>Tiêu đề:</strong> <span id="savedTitle"></span></p>
-            <p><strong>Ngôn ngữ:</strong> <span id="savedLanguage"></span></p>
-            <p><strong>Mô tả:</strong> <span id="savedDescription"></span></p>
+    <!-- Popup tạo list -->
+    <div class="popup hidden" id="popupForm">
+        <div class="popup-content">
+            <h2>Tạo list từ</h2>
+            <label for="popupTitle">Tiêu đề*</label>
+            <input id="popupTitle" type="text" placeholder="Nhập tiêu đề" required>
+            <label for="popupLanguage">Ngôn ngữ*</label>
+            <select id="popupLanguage">
+                <option value="en-us">Tiếng Anh-Mỹ</option>
+                <option value="en-uk">Tiếng Anh-Anh</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="zh">Tiếng Trung</option>
+                <option value="ko">Tiếng Hàn</option>
+            </select>
+            <label for="popupDescription">Mô tả</label>
+            <textarea id="popupDescription" placeholder="Nhập mô tả"></textarea>
+            <button id="saveListButton">Lưu</button>
         </div>
     </div>
 
