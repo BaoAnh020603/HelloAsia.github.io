@@ -7,7 +7,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
-    </head>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        #createListContainer {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
 <body>
     <div class="header">
         <div class="d-flex align-items-center">
@@ -51,45 +64,45 @@
                 <p>Bạn chưa học list từ nào. Khám phá ngay hoặc bắt đầu tạo các list từ mới.</p>
                 <h4>List từ đã tạo:</h4>
                 <div class="list-group">
-    <button id="createListBtn" class="list-group-item">
-        <i class="fas fa-plus-circle"></i> Tạo list từ
-    </button>
-    <div id="createListContainer" class="hidden"></div>
-    <p>Chưa có list từ nào.</p>
-</div>
+                    <button id="createListBtn" class="list-group-item">
+                        <i class="fas fa-plus-circle"></i> Tạo list từ
+                    </button>
+                    <div id="createListContainer" class="hidden"></div>
+                    <p>Chưa có list từ nào.</p>
+                </div>
             </div>
             <div class="col-md-4 sidebar">
-    <img alt="Language image" src="https://www.studyandgoabroad.com/wp-content/uploads/2019/01/langtravel.jpg" width="300" height="150" />
-</div>
+                <img alt="Language image" src="https://www.studyandgoabroad.com/wp-content/uploads/2019/01/langtravel.jpg" width="300" height="150" />
+            </div>
         </div>
     </div>
     <script>
-    document.getElementById("createListBtn").addEventListener("click", function () {
-        const container = document.getElementById("createListContainer");
+        document.getElementById("createListBtn").addEventListener("click", function () {
+            const container = document.getElementById("createListContainer");
 
-        // Nếu nội dung đã được tải, chỉ toggle hiển thị
-        if (container.innerHTML.trim()) {
-            container.classList.toggle("hidden");
-            return;
-        }
+            // Nếu nội dung đã được tải, chỉ toggle hiển thị
+            if (container.innerHTML.trim()) {
+                container.classList.toggle("hidden");
+                return;
+            }
 
-        // Tải nội dung từ CreateList.html
-        fetch("CreateList.html")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Không thể tải nội dung từ CreateList.html");
-                }
-                return response.text();
-            })
-            .then(data => {
-                container.innerHTML = data; // Chèn nội dung vào container
-                container.classList.remove("hidden"); // Hiển thị container
-            })
-            .catch(error => {
-                console.error("Error loading CreateList.html:", error);
-                container.innerHTML = "<p>Không thể tải nội dung. Vui lòng thử lại sau.</p>";
-            });
-    });
-</script>
+            // Tải nội dung từ CreateList.html
+            fetch("CreateList.html")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Không thể tải nội dung từ CreateList.html");
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    container.innerHTML = data; // Chèn nội dung vào container
+                    container.classList.remove("hidden"); // Hiển thị container
+                })
+                .catch(error => {
+                    console.error("Error loading CreateList.html:", error);
+                    container.innerHTML = "<p>Không thể tải nội dung. Vui lòng thử lại sau.</p>";
+                });
+        });
+    </script>
 </body>
 </html>
