@@ -138,12 +138,13 @@ a:hover {
 }
 
 .sidebar img {
-    width: 150px; /* Kích thước nhỏ hơn */
+    width: 200px; /* Tăng kích thước */
     border-radius: 10px;
     position: absolute;
-    top: 10px; /* Căn chỉnh khoảng cách từ trên */
-    right: 10px; /* Căn chỉnh khoảng cách từ phải */
-    margin-bottom: 10px; /* Duy trì khoảng cách phía dưới */
+    top: 10px; /* Khoảng cách từ trên */
+    right: 10px; /* Khoảng cách từ phải */
+    margin-bottom: 10px; /* Khoảng cách dưới */
 }
+
 
 
