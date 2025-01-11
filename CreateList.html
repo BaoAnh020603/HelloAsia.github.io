@@ -1,205 +1,73 @@
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tạo List Từ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Tạo Danh Sách</title>
     <style>
-        /* CSS */
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
             padding: 0;
-            box-sizing: border-box;
         }
-
-        .list-container {
-            padding: 20px;
+        li {
+            background: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-
-        .list-container h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            margin-right: 10px;
         }
-
-        .list-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .list-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 150px;
-            height: 150px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .list-item:hover {
-            background-color: #f0f0f0;
-            border-color: #007bff;
-        }
-
-        .create-icon {
-            font-size: 36px;
-            color: #007bff;
-        }
-
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .popup.hidden {
-            display: none;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
-
-        .popup-content label {
-            display: block;
-            margin-top: 10px;
-            text-align: left;
-        }
-
-        .popup-content input,
-        .popup-content select,
-        .popup-content textarea {
-            width: 100%;
-            margin-top: 5px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .popup-content button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
-
-        .popup-content button:hover {
-            background-color: #0056b3;
-        }
-
-        .saved-list {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
+        button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <!-- List container -->
-    <div class="list-container">
-        <h2>List từ đã tạo:</h2>
-        <div class="list-items">
-            <!-- Tạo list từ -->
-            <div class="list-item create-list" id="createListButton">
-                <div class="create-icon">+</div>
-                <p>Tạo list từ</p>
-            </div>
-        </div>
-    </div>
 
-    <!-- Popup form -->
-    <div class="popup hidden" id="popupForm">
-        <div class="popup-content">
-            <h2>Tạo list từ</h2>
-            <label for="title">Tiêu đề*</label>
-            <input type="text" id="title" placeholder="Nhập tiêu đề">
-            
-            <label for="language">Ngôn ngữ*</label>
-            <select id="language">
-                <option value="en-us">Tiếng Anh-Mỹ</option>
-                <option value="en-uk">Tiếng Anh-Anh</option>
-                <option value="vi">Tiếng Việt</option>
-                <option value="zh">Tiếng Trung</option>
-                <option value="ko">Tiếng Hàn</option>
-            </select>
-            
-            <label for="description">Mô tả</label>
-            <textarea id="description" placeholder="Nhập mô tả"></textarea>
-            
-            <button id="saveListButton">Lưu</button>
-        </div>
-    </div>
+    <h1>Tạo Danh Sách</h1>
+    <input type="text" id="itemInput" placeholder="Nhập mục mới...">
+    <button onclick="addItem()">Thêm vào danh sách</button>
 
-    <!-- JavaScript -->
+    <ul id="itemList">
+        <!-- Danh sách sẽ được thêm vào đây -->
+    </ul>
+
     <script>
-        // Lấy các phần tử cần thiết
-const createListButton = document.getElementById("createListButton");
-const popupForm = document.getElementById("popupForm");
-const saveListButton = document.getElementById("saveListButton");
-const listItemsContainer = document.querySelector(".list-items");
+        function addItem() {
+            var input = document.getElementById("itemInput");
+            var newItem = input.value.trim();
 
-// Kiểm tra xem mục "Tạo list từ" đã tồn tại chưa
-let createListExists = true;
-
-// Sự kiện click để mở form tạo list
-createListButton.addEventListener("click", () => {
-    popupForm.classList.remove("hidden"); // Hiển thị popup
-});
-
-// Sự kiện click để lưu list từ
-saveListButton.addEventListener("click", () => {
-    const title = document.getElementById("title").value;
-    const language = document.getElementById("language").value;
-    const description = document.getElementById("description").value;
-
-    if (title.trim() === "" || language.trim() === "") {
-        alert("Vui lòng điền đầy đủ thông tin bắt buộc!");
-        return;
-    }
-
-    // Tạo thẻ mới cho list từ
-    const newList = document.createElement("div");
-    newList.className = "list-item";
-    newList.innerHTML = `
-        <h3>${title}</h3>
-        <p>Ngôn ngữ: ${language}</p>
-        <p>${description || "Không có mô tả"}</p>
-    `;
-
-    // Thêm vào danh sách nếu chưa có
-    if (createListExists) {
-        listItemsContainer.appendChild(newList);
-        createListExists = false; // Đánh dấu là đã thêm mục "Tạo list từ"
-    }
-
-    // Đóng popup và reset form
-    popupForm.classList.add("hidden");
-    document.getElementById("title").value = "";
-    document.getElementById("language").value = "";
-    document.getElementById("description").value = "";
-});
+            if (newItem) {
+                var li = document.createElement("li");
+                li.textContent = newItem;
+                document.getElementById("itemList").appendChild(li);
+                input.value = ""; // Xóa input sau khi thêm
+            } else {
+                alert("Vui lòng nhập một mục!");
+            }
+        }
     </script>
+
 </body>
 </html>
