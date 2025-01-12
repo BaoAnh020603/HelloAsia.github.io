@@ -4,172 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo List Từ</title>
-    <style>
-        /* Modal Styles */
-        .modal.show {
-            display: block;
-            padding-right: 15px;
-            background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
-        }
-
-        .modal-dialog.modal-lg {
-            max-width: 80%;
-            margin: 2rem auto;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #000;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .close span {
-            display: inline-block;
-            line-height: 1;
-        }
-
-        /* Form Styles */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        input[type="text"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-            color: #333;
-            box-sizing: border-box;
-        }
-
-        input[type="text"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        button[type="submit"] {
-            display: inline-block;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 1rem;
-            padding: 0.5rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
-            transition: background-color 0.2s;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        .requiredField .asteriskField {
-            color: red;
-        }
-
-        .custom-cursor-default-hover {
-            cursor: default;
-        }
-    </style>
+    <link rel="stylesheet" href="CreateList.css">
 </head>
 <body>
-    <div class="modal show" id="form-modal" tabindex="-1" aria-labelledby="form-modal" data-keyboard="false" data-backdrop="static" style="display: block; padding-right: 15px;" aria-modal="true" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <div class="modal-body" id="form-modal-content">
-                    <div class="container">
-                        <h1>Tạo list từ</h1>
-                        <form action="/flashcards/lists/create/" method="POST" enctype="multipart/form-data" class="jqform">
-                            <input name="csrfmiddlewaretoken" type="hidden" value="NiP456y1U4Q1nMYsxPuZRLpZOE0bxWXWMEBkmP4dI9dDQebxVQ2Rp2chbQ9JNlpO">
+    <!-- Nút mở modal -->
+    <button id="create-list-btn" class="btn btn-primary">Tạo list từ</button>
 
-                            <div id="div_id_title" class="form-group">
-                                <label for="id_title" class="requiredField custom-cursor-default-hover">
-                                    Tiêu đề<span class="asteriskField">*</span>
-                                </label>
-                                <div class="">
-                                    <input type="text" name="title" maxlength="255" class="textinput textInput form-control" required="" id="id_title">
-                                </div>
-                            </div>
+    <!-- Modal -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tạo list từ</h2>
+            <form method="POST" action="/flashcards/lists/create/">
+                <!-- CSRF token -->
+                <input type="hidden" name="csrfmiddlewaretoken" value="your-csrf-token">
 
-                            <div id="div_id_source_lang" class="form-group">
-                                <label for="id_source_lang" class=" requiredField">
-                                    Ngôn ngữ<span class="asteriskField">*</span>
-                                </label>
-                                <div class="">
-                                    <select name="source_lang" class="select form-control" id="id_source_lang">
-                                        <option value="en-US" selected="">Tiếng Anh-Mỹ</option>
-                                        <option value="en-GB">Tiếng Anh-Anh</option>
-                                        <option value="zh-CN">Tiếng Trung</option>
-                                        <option value="ja-JP">Tiếng Nhật</option>
-                                        <option value="ko-KR">Tiếng Hàn</option>
-                                    </select>
-                                </div>
-                            </div>
+                <!-- Tiêu đề -->
+                <label for="title">Tiêu đề:</label>
+                <input type="text" id="title" name="title" required>
 
-                            <div class="form-group">
-                                <label class="label" for="description">Mô tả</label>
-                                <textarea class="form-control " id="field-description" name="description" rows="2" placeholder=""></textarea>
-                            </div>
+                <!-- Ngôn ngữ -->
+                <label for="source_lang">Ngôn ngữ:</label>
+                <select id="source_lang" name="source_lang" required>
+                    <option value="en">Tiếng Anh-Mỹ</option>
+                    <option value="vi">Tiếng Anh-Anh</option>
+                    <option value="fr">Tiếng Hàn</option>
+                    <option value="fr">Tiếng Trung</option>
+                    <option value="fr">Tiếng Nhật</option>
+                    <!-- Add more languages here -->
+                </select>
 
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Lưu</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                <!-- Mô tả -->
+                <label for="description">Mô tả:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <!-- Nút lưu -->
+                <button type="submit" class="btn btn-success">Lưu</button>
+            </form>
         </div>
     </div>
+
+    <script src="CreateList.js"></script>
 </body>
 </html>
