@@ -4,46 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo List Từ</title>
-    <link rel="stylesheet" href="CreateList.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .modal-header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
-    <!-- Nút mở modal -->
-    <button id="create-list-btn" class="btn btn-primary">Tạo list từ</button>
+    <div class="container mt-5">
+        <!-- Button to trigger modal -->
+        <button type="button" class="btn btn-primary" id="btn-open-modal">
+            Tạo list từ
+        </button>
+    </div>
 
     <!-- Modal -->
-    <div id="form-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Tạo list từ</h2>
-            <form method="POST" action="/flashcards/lists/create/">
-                <!-- CSRF token -->
-                <input type="hidden" name="csrfmiddlewaretoken" value="your-csrf-token">
+    <div class="modal" id="form-modal" tabindex="-1" aria-labelledby="form-modal-label" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Tạo list từ</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/flashcards/lists/create/" method="POST" enctype="multipart/form-data">
+                        <input name="csrfmiddlewaretoken" type="hidden" value="DzqEwivwMGowTT1vaJoNmQaqfnAvkIwECVcUN11IALL8mleAyKWFU7XICzJ3A7Yw">
 
-                <!-- Tiêu đề -->
-                <label for="title">Tiêu đề:</label>
-                <input type="text" id="title" name="title" required>
+                        <div class="form-group">
+                            <label for="id_title">Tiêu đề<span class="text-danger">*</span></label>
+                            <input type="text" name="title" maxlength="255" class="form-control" required id="id_title">
+                        </div>
 
-                <!-- Ngôn ngữ -->
-                <label for="source_lang">Ngôn ngữ:</label>
-                <select id="source_lang" name="source_lang" required>
-                    <option value="en">Tiếng Anh-Mỹ</option>
-                    <option value="vi">Tiếng Anh-Anh</option>
-                    <option value="fr">Tiếng Hàn</option>
-                    <option value="fr">Tiếng Trung</option>
-                    <option value="fr">Tiếng Nhật</option>
-                    <!-- Add more languages here -->
-                </select>
+                        <div class="form-group">
+                            <label for="id_source_lang">Ngôn ngữ<span class="text-danger">*</span></label>
+                            <select name="source_lang" class="form-control" id="id_source_lang">
+                                <option value="en-US" selected>Tiếng Anh-Mỹ</option>
+                                <option value="en-GB">Tiếng Anh-Anh</option>
+                                <option value="zh-CN">Tiếng Trung</option>
+                                <option value="ja-JP">Tiếng Nhật</option>
+                                <option value="ko-KR">Tiếng Hàn</option>
+                            </select>
+                        </div>
 
-                <!-- Mô tả -->
-                <label for="description">Mô tả:</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
+                        <div class="form-group">
+                            <label for="field-description">Mô tả</label>
+                            <textarea class="form-control" id="field-description" name="description" rows="2"></textarea>
+                        </div>
 
-                <!-- Nút lưu -->
-                <button type="submit" class="btn btn-success">Lưu</button>
-            </form>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="CreateList.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <script>
+        // Show modal when button is clicked
+        $(document).ready(function() {
+            $('#btn-open-modal').click(function() {
+                $('#form-modal').modal('show');
+            });
+
+            // Close modal on 'x' or backdrop click
+            $('.close').click(function() {
+                $('#form-modal').modal('hide');
+            });
+        });
+    </script>
 </body>
 </html>
